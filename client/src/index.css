@@ -1,13 +1,140 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+/* About */
+
+.about{
+  background-color: rgb(8, 52, 84);
+  color: white;
+  display: flex;
+  padding: 80px;
+}
+#top-about{
+  font-weight: 700;
+}
+#image{
+  border-radius: 7px;
+  height: 200px;
+}
+#about-image{
+  border-radius: 6px;
+}
+.about-pri{
+  width: 50%;
+}
+.about-sec{
+  width: 20%;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.forms-about{
+  background-color: white;
+  padding: 10px;
+  border-radius: 6px;
+}
+.specs{
+  padding: 20px;
+}
+#spec{
+  padding: 6px;
+  font-size: 22px;
+}
+#h2-about{
+  font-weight: 600;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-self: center;
+  padding-top: 20px;
+}
+
+.inputfield{
+  padding: 15px;
+  
+}
+.form-group{
+  padding: 5px;
+  width: 100%;
+  border-radius: 6px;
+  
+}
+#p-top{
+  font-size: 28px;
+}
+#p-about{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+}
+
+.sect-2{
+  background-color: aliceblue;
+  padding-bottom: 20px;
+  margin: 0;
+}
+.sec-divs{
+  display: flex;
+  justify-content: center;
+  font-weight: 600;
+}
+#sec-div-us{
+  background-color: white;
+  padding: 40px;
+  border-radius: 6px;
+}
+.sect-3{
+  background-color:  rgb(8, 52, 84);
+}
+#mid-about{
+  color: white;
+  font-weight: 600;
+  display: flex;
+  justify-content: center;
+  padding: 15px;
+}
+.lower-sect{
+  display: flex;
+  margin-left: 15%;
+  margin-right: 15%;
+}
+.lower-sect1{
+  padding: 35px;
+  background-color: aliceblue;
+  border-radius: 7px;
+  margin-bottom: 50px;
+  margin-left: 7%;
+}
+
+.bottom{
+  background-color: black;
+  color: white;
+  display: flex;
+  padding: 80px;
+  margin-bottom: 0%;
+}
+.bottom1{
+ padding-right: 50px;
+}
+#bottom-header{
+  font-weight: 600;
+  font-size: 32px;
+}
+#bottom-p{
+  font-weight: 300;
+  font-size: 24px;
+  padding-bottom: 30px;
+}
+#p-desc{
+  font-size: 21px;
+  font-weight: 300;
+}
+
+.btn{
+  color: black;
+  padding: 8px;
+  border-radius: 6px;
+  font-size: 18px;
+}
+.btn-primary{
+  padding: 8px;
+}
+#sect1{
+  width: 50%;
 }
