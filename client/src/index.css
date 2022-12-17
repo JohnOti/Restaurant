@@ -1,11 +1,14 @@
 /* Register */
 .forms{
-  background-color: rgb(8, 52, 84);
+   background-image: url(./assets/kari-shea-AMyjxxLEHU4-unsplash.jpg);
+  /* background-color: rgb(8, 52, 84); */
+  background-size: "cover";
   color: white;
   display: flex;
   flex-direction: column;
   justify-content: center;
   padding: 5%;
+  /* height: 60vh; */
 }
 .form{
   width: 40%;
@@ -27,6 +30,10 @@ label{
 }
 
 /* Login */
+/* .login{
+ 
+  background-color: aqua;
+} */
 
 
 /* About */
