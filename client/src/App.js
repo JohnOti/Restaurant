@@ -1,28 +1,14 @@
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route} from "react-router-dom";
 import About from "./About";
 import Login from "./Login";
+import Navbar from "./Navbar";
 import Register from "./Register";
 
 function App() {
   return (
     <div className="App">
       <Router>
-        <nav>
-          <ul>
-            <li>
-              <Link to="/">Home</Link>
-            </li>
-            <li>
-              <Link to="/about">About</Link>
-            </li>
-            <li>
-              <Link to="/login">Login</Link>
-            </li>
-            <li>
-              <Link to="/register">Register</Link>
-            </li>
-          </ul>
-        </nav>
+        <Navbar/>
         <Switch>
           <Route path="/about">
             <About />

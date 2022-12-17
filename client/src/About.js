@@ -5,7 +5,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 function About() {
   return (
     <div>
-      About
       <div className="about">
         <div className="about-pri">
           <h1 id="top-about">Restaurant Services</h1>
