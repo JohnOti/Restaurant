@@ -1,0 +1,51 @@
+{
+    "restaurants":[
+        {
+            "id": 1,
+            "name": "Mama Rocks Gourmet Burgers",
+            "reviews": "Best burgers in town!!",
+            "ratings": 5,
+            "location_id": 1
+        },
+        {
+            "id": 2,
+            "name": "Fogo Gaucho",
+            "reviews": "amazing service!!",
+            "ratings": 4.5,
+            "location_id": 1
+        }
+    ],
+    "customers":[
+    ],
+    "menus":[
+        {
+            "id": 1,
+            "dish": "Chicken Tikka Masala",
+            "image": "https://images.bolt.eu/store/2022/2022-03-01/71aeedeb-0e36-4fed-a426-691306cf5f86.png",
+            "price": 1600,
+            "restaurant_id": 1
+        },
+        {
+            "id": 2,
+            "dish": "Dilliwala Butter Chicken",
+            "image": "https://images.bolt.eu/store/2022/2022-03-01/4f9b96e3-861a-42ae-96f2-21cb76b1ebe4.png",
+            "price": 1250,
+            "restaurant_id": 2
+        }
+    ],
+    "locations":[
+        {
+            "id": 1,
+            "city": "Nairobi"
+        },
+        {
+            "id": 2,
+            "city": "Mombasa"
+        }
+    ],
+    "reservations":[
+    
+    ],
+    "favorites":[
+    ]
+}
