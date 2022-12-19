@@ -10,15 +10,13 @@ function App() {
       <Router>
         <Navbar/>
         <Switch>
-          <Route path="/about">
+          <Route exact path="/about">
             <About />
           </Route>
-          <Route path="/login">
+          <Route exact path="/login">
             <Login />
           </Route>
-          <Route path="/register">
-            <Register />
-          </Route>
+          <Route exact path="/register"><Register /></Route>
         </Switch>
       </Router>
     </div>
