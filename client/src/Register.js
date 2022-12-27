@@ -36,7 +36,8 @@ function Register() {
         password: "",
         confirm_password: ""
       })
-  }
+    }
+
   return (
 
     <div
@@ -74,6 +75,8 @@ function Register() {
         <button className="btn" type="submit">
           Register
         </button>
+        </form>
+        </div>
       </form>
     </div>
   );
