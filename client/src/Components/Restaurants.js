@@ -1,6 +1,7 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
-const Restaurants = ({restaurants, location}) => {
+const Restaurants = ({ restaurants, location, handleMenu }) => {
     const [locationFilter, setLocationFilter] = useState("All")
 
     const locationList = location.map( loc => {
@@ -30,14 +31,16 @@ const Restaurants = ({restaurants, location}) => {
 
 
     const restaurantList = restaurantFilter.map( res => {
-
-                return(
-                    <div key={res.id}>
-                        <img src={res.image} alt={res.name} />
-                        <h3>{res.name}</h3>
-                    </div>
-                )
-            })
+      console.log(res.id)
+      return(
+        <Link to="/menu">
+          <div key={res.id}  >
+            <img src={res.image} alt={res.name} />
+            <h3 onClick={handleMenu} value={res.id}>{res.name}</h3>
+          </div>
+        </Link>
+      )
+    })
         
     // console.log(restaurantList)
 

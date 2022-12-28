@@ -4,11 +4,14 @@ import Login from "./Login";
 import Navbar from "./Navbar";
 import Register from "./Register";
 import Restaurants from "./Components/Restaurants";
+import Menu from "./Components/Menu";
 import React, { useState, useEffect} from "react";
 
 function App() {
   const [ restaurants, setRestaurants] = useState([])
   const [ location, setLocation] = useState([])
+  const [ menus, setMenus ] = useState([])
+  const [ restaurantId, setRestaurantId] = useState("")
 
   useEffect(()=>{
     
@@ -28,6 +31,18 @@ function App() {
     .catch(err => console.error(err))
 
   }, [])
+  useEffect(()=>{
+    
+    fetch("/menus")
+    .then(r => r.json())
+    .then(d => setMenus(d))
+    .catch(err => console.error(err))
+
+  }, [])
+
+  const handleMenu = (e) => {
+    setRestaurantId(e.target.value);
+  }
 
 
   return (
@@ -44,8 +59,11 @@ function App() {
           <Route path="/register">
             <Register />
           </Route>
-          <Route path="/" >
-            <Restaurants restaurants={restaurants} location={location}/>
+          <Route path='/menu'>
+            <Menu restaurantId={restaurantId} menus={menus} />
+          </Route>
+          <Route exact path="/" >
+            <Restaurants restaurants={restaurants} location={location} handleMenu={handleMenu}/>
           </Route>
         </Switch>
       </Router>
