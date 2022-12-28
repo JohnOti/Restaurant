@@ -12,7 +12,7 @@ function App() {
 
   useEffect(()=>{
     
-    fetch("/restaurants")
+    fetch("/favorite_restaurants")
     .then(r => r.json())
     .then(d => setRestaurants(d))
     .catch(err => console.error(err))
