@@ -1,4 +1,3 @@
-import background from './assets/collin-armstrong-SR0_MNa77MU-unsplash.jpg'
 import React, { useState } from 'react'
 
 function Register() {
@@ -39,15 +38,7 @@ function Register() {
   }
   return (
 
-    <div
-      style={{
-        backgroundImage: `url(${background})`,
-        backgroundPosition: "center",
-        backgroundSize: "cover",
-        backgroundRepeat: "no-repeat",
-        height: "800px",
-      }}
-    >
+    <div className='login'>
       <form className="forms" onSubmit={handleSubmit}>
         <h1 id='user'>User Registration</h1>
         <label>Name</label>

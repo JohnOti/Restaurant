@@ -14,20 +14,6 @@ function Navbar() {
           Home
         </button>
       </div>
-      {/* <div>
-        <button type="button" id="btn-sec" onClick={()=>{history.push("/register")}}>
-          Login
-        </button>
-      </div> */}
-      <div>
-        <button id="btn-sec">
-          About
-          {/* <NavLink to="/about">About</NavLink> */}
-        </button>
-      </div>
-      <div>
-        <button id="btn-sec">Logout</button>
-      </div>
     </div>
   );
 }
