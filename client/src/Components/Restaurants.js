@@ -17,9 +17,6 @@ const Restaurants = ({ restaurants, location, handleMenu }) => {
     const handleFilter = (e) => {
         setLocationFilter(parseInt(e.target.value))
      }
-    //  console.log(locationFilter)
-     
-
 
     const restaurantFilter = restaurants.filter( item => {
       if(locationFilter === "All"){
@@ -33,16 +30,15 @@ const Restaurants = ({ restaurants, location, handleMenu }) => {
     const restaurantList = restaurantFilter.map( res => {
       console.log(res.id)
       return(
-        <Link to="/menu">
+        
           <div key={res.id}  className="grid">
             <img src={res.image} alt={res.name} style={{
               height:"150px",
               width: "200px"
             }}/>
-            <h3 onClick={handleMenu} value={res.id}>{res.name}</h3>
-            <p>ratings</p>
+            <h3 >{res.name}</h3>
+            <Link to={`/menu/${res.id}`}><button onClick={handleMenu} value={res.id}> </button></Link>
           </div>
-        </Link>
       )
     })
         
