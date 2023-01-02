@@ -37,7 +37,7 @@ const Restaurants = ({ restaurants, location, handleMenu }) => {
               width: "200px"
             }}/>
             <h3 >{res.name}</h3>
-            <Link to={`/menu/${res.id}`}><button onClick={handleMenu} value={res.id}> </button></Link>
+            <Link to={`/menu/${res.id}`}><button onClick={handleMenu} value={res.id} id="btn-sec">Menu</button></Link>
           </div>
       )
     })
