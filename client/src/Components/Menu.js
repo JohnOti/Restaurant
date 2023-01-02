@@ -10,11 +10,14 @@ const Menu = ({ restaurantId, menus }) => {
     const menu = filterByRestId.map( item => {
         console.log(item.favorite_restaurant_id)
         return(
-            <div key={item.id}>
-                <img src={item.image} alt={item.cuisine} />
+            <div key={item.id} className="grid-menu">
+                <img src={item.image} alt={item.cuisine} style={{
+              height:"150px",
+              width: "200px"
+            }} />
                 <h3>{item.cuisine}</h3>
                 <p>{item.ingredients}</p>
-                <h4>{item.price}</h4>
+                <h4>{`Ksh. ${item.price}`}</h4>
                 <button>make reservation</button>
             </div>
         )
