@@ -201,8 +201,11 @@ label{
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   border-radius: 10px;
+  gap: 20px;
   padding: 10px;
   margin: 10px;
-  background-color: #FFFF9F;
+  margin-left: 100px;
+  margin-right: 100px;
+  background-color: #FFF44F;
   color: black;
 }

@@ -50,8 +50,7 @@ const Restaurants = ({ restaurants, location, handleMenu }) => {
 
     return (
     <div style={{
-      
-      justifyContent:"center"
+      background: "#FAFAD2"
     }}>
     <div 
     style={{
