@@ -34,9 +34,13 @@ const Restaurants = ({ restaurants, location, handleMenu }) => {
       console.log(res.id)
       return(
         <Link to="/menu">
-          <div key={res.id}  >
-            <img src={res.image} alt={res.name} />
+          <div key={res.id}  className="grid">
+            <img src={res.image} alt={res.name} style={{
+              height:"150px",
+              width: "200px"
+            }}/>
             <h3 onClick={handleMenu} value={res.id}>{res.name}</h3>
+            <p>ratings</p>
           </div>
         </Link>
       )
@@ -45,8 +49,15 @@ const Restaurants = ({ restaurants, location, handleMenu }) => {
     // console.log(restaurantList)
 
     return (
-    <>
-    <div>
+    <div style={{
+      
+      justifyContent:"center"
+    }}>
+    <div 
+    style={{
+      textAlign:"center",
+      padding:"20px",
+    }}>
         <input
           type="text"
           name="search"
@@ -61,7 +72,7 @@ const Restaurants = ({ restaurants, location, handleMenu }) => {
         </select>
     </div>
     {restaurantList}
-    </>
+    </div>
     )
 }
 

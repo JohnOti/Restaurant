@@ -197,3 +197,12 @@ label{
 #sect1{
   width: 50%;
 }
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  border-radius: 10px;
+  padding: 10px;
+  margin: 10px;
+  background-color: #FFFF9F;
+  color: black;
+}
