@@ -197,3 +197,29 @@ label{
 #sect1{
   width: 50%;
 }
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  border-radius: 10px;
+  gap: 20px;
+  padding: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 100px;
+  margin-right: 100px;
+  background-color: #ebcf18;
+  color: black;
+}
+.grid-menu {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  border-radius: 10px;
+  gap: 20px;
+  padding: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 100px;
+  margin-right: 100px;
+  background-color: #ffc14f;
+  color: black;
+}

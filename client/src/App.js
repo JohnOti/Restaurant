@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Switch, Route} from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import About from "./About";
 import Login from "./Login";
 import Navbar from "./Navbar";
@@ -46,7 +46,9 @@ function App() {
 
 
   return (
-    <div className="App">
+    <div className="App" style={{
+      background: "#FAFAD2"
+    }}>
       <Router>
         <Navbar/>
         <Switch>
@@ -59,7 +61,7 @@ function App() {
           <Route path="/register">
             <Register />
           </Route>
-          <Route path='/menu'>
+          <Route path="/menu/:id">
             <Menu restaurantId={restaurantId} menus={menus} />
           </Route>
           <Route exact path="/" >
