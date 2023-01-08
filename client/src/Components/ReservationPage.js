@@ -24,7 +24,7 @@ const ReservationPage = ( filterByRestId, restaurant, handleMenu ) => {
                 <Menu filterByRestId={filterByRestId} restaurant={restaurant} handleMenu={handleMenu} />
                 <div>
                     <Route path={`${match.url}/:name`}>
-                        <Reservation />
+                        <Reservation filterByRestId={filterByRestId} />
                     </Route>
                 </div>
             </div>
