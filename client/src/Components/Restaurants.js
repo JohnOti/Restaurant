@@ -4,40 +4,37 @@ import { Link } from "react-router-dom";
 const Restaurants = ({ restaurants, location, handleMenu }) => {
     const [locationFilter, setLocationFilter] = useState("All")
 
-    const locationList = location.map( loc => {
-
-        
-        return(
-            <>
+    const locationList = location.map( loc => 
               <option value={loc.id} key={loc.id}>{loc.city}</option>
-            </>
-        )
-    })
+            )
 
     const handleFilter = (e) => {
-        setLocationFilter(parseInt(e.target.value))
+        setLocationFilter(e.target.value)
      }
 
     const restaurantFilter = restaurants.filter( item => {
+      
       if(locationFilter === "All"){
         return restaurants
       }else{
-        return item.location_id === locationFilter
+        return item.location_id === parseInt(locationFilter)
       }
     })
 
 
     const restaurantList = restaurantFilter.map( res => {
-      console.log(res.id)
+
       return(
         
           <div key={res.id}  className="grid">
-            <img src={res.image} alt={res.name} style={{
+            <Link to={`/menu/${res.name}`}>
+              <img src={res.image} alt={res.name} style={{
               height:"150px",
               width: "200px"
             }}/>
+            </Link>
             <h3 >{res.name}</h3>
-            <Link to={`/menu/${res.id}`}><button onClick={handleMenu} value={res.id} id="btn-sec">Menu</button></Link>
+            <Link to={`/menu/${res.name}`}><button onClick={handleMenu} value={res.id} id="btn-sec">Menu</button></Link>
           </div>
       )
     })

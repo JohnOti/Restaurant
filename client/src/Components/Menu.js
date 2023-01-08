@@ -1,14 +1,10 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
-const Menu = ({ restaurantId, menus }) => {
-
-    // console.log(menus)
-    // console.log(restaurantId)
-
-    const filterByRestId = menus.filter( item => item.favorite_restaurant_id === parseInt(restaurantId))
+const Menu = ({ filterByRestId, restaurant, handleMenu}) => {
     console.log(filterByRestId)
-    const menu = filterByRestId.map( item => {
-        console.log(item.favorite_restaurant_id)
+    const menu = filterByRestId.filterByRestId.map( item => {
+
         return(
             <div key={item.id} className="grid-menu">
                 <img src={item.image} alt={item.cuisine} style={{
@@ -18,14 +14,22 @@ const Menu = ({ restaurantId, menus }) => {
                 <h3>{item.cuisine}</h3>
                 <p>{item.ingredients}</p>
                 <h4>{`Ksh. ${item.price}`}</h4>
-                <button>make reservation</button>
             </div>
         )
     })
 
     return(
         <div>
-            {menu}
+            <div style={{
+                textAlign:"center"
+            }}>
+                <Link to={`/menu/make-reservation/${filterByRestId.restaurant.name}`}>
+                    <button onClick={filterByRestId.handleMenu} value={filterByRestId.restaurant.id} id="btn-sec">make reservation</button>
+                </Link>
+            </div>
+            <>
+                {menu}
+            </>
         </div>
     )
 }
