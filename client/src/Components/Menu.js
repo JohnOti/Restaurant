@@ -1,31 +1,38 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
-const Menu = ({ restaurantId, menus }) => {
+const Menu = ({ filterByRestId, restaurant, handleMenu}) => {
+    const menu = filterByRestId.filterByRestId.map( item => {
 
-    // console.log(menus)
-    // console.log(restaurantId)
-
-    const filterByRestId = menus.filter( item => item.favorite_restaurant_id === parseInt(restaurantId))
-    console.log(filterByRestId)
-    const menu = filterByRestId.map( item => {
-        console.log(item.favorite_restaurant_id)
         return(
-            <div key={item.id} className="grid-menu">
-                <img src={item.image} alt={item.cuisine} style={{
-              height:"150px",
-              width: "200px"
-            }} />
-                <h3>{item.cuisine}</h3>
-                <p>{item.ingredients}</p>
-                <h4>{`Ksh. ${item.price}`}</h4>
-                <button>make reservation</button>
+            <div className="menu">
+                <div key={item.id} className="grid-menu">
+                    <img src={item.image} alt={item.cuisine} id="image"/>
+                    <h3>{item.cuisine}</h3>
+                    <p style={{
+                         paddingRight: "150px"
+                    }}>{item.ingredients}</p>
+                    <h4>{`Ksh. ${item.price}`}</h4>
+                </div>
+                <div id="add-icon-div">
+                    <p id="add-icon">+</p>
+                </div>
             </div>
         )
     })
 
     return(
         <div>
-            {menu}
+            <div style={{
+                textAlign:"center",
+            }}>
+                <Link to={`/menu/make-reservation/${filterByRestId.restaurant.name}`}>
+                    <button onClick={filterByRestId.handleMenu} value={filterByRestId.restaurant.id} id="btn-sec">make reservation</button>
+                </Link>
+            </div>
+            <>
+                {menu}
+            </>
         </div>
     )
 }

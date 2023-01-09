@@ -4,7 +4,7 @@ import Login from "./Login";
 import Navbar from "./Navbar";
 import Register from "./Register";
 import Restaurants from "./Components/Restaurants";
-import Menu from "./Components/Menu";
+import ReservationPage from "./Components/ReservationPage";
 import React, { useState, useEffect} from "react";
 
 function App() {
@@ -44,6 +44,10 @@ function App() {
     setRestaurantId(e.target.value);
   }
 
+  const restaurant = restaurants.find( item => item.id === parseInt(restaurantId))
+
+  const filterByRestId = menus.filter( item => item.favorite_restaurant_id === parseInt(restaurantId))
+
 
   return (
     <div className="App" style={{
@@ -61,8 +65,8 @@ function App() {
           <Route path="/register">
             <Register />
           </Route>
-          <Route path="/menu/:id">
-            <Menu restaurantId={restaurantId} menus={menus} />
+          <Route path="/menu/:name">
+            <ReservationPage filterByRestId={filterByRestId} restaurant={restaurant} handleMenu={handleMenu}/>
           </Route>
           <Route exact path="/" >
             <Restaurants restaurants={restaurants} location={location} handleMenu={handleMenu}/>
