@@ -6,20 +6,33 @@ function Navbar() {
     
   return (
     <div className="nav">
-      <div className='logo'>
+      <div className="logo">
         <h1>logo here</h1>
       </div>
       <div id="home">
-        <Link to="/" ><button id="btn-sec">Home</button></Link>
+        <Link to="/">
+          <button id="btn-sec">Home</button>
+        </Link>
       </div>
       <div>
-        <Link to="/login"><button id="btn-sec">Login</button></Link>
+        <Link to="/register">
+          <button id="btn-sec">Register</button>
+        </Link>
       </div>
       <div>
-        <Link to="/about"><button id="btn-sec">About us</button></Link>
+        <Link to="/login">
+          <button id="btn-sec">Login</button>
+        </Link>
       </div>
       <div>
-        <Link to="/login"><button id="btn-sec">Logout</button></Link>
+        <Link to="/about">
+          <button id="btn-sec">About us</button>
+        </Link>
+      </div>
+      <div>
+        <Link to="/login">
+          <button id="btn-sec">Logout</button>
+        </Link>
       </div>
     </div>
   );

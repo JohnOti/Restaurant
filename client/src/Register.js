@@ -1,83 +1,94 @@
-import background from './assets/collin-armstrong-SR0_MNa77MU-unsplash.jpg'
+// import background from './assets/collin-armstrong-SR0_MNa77MU-unsplash.jpg'
 import React, { useState } from 'react'
+import { Redirect, Link } from 'react-router-dom';
 
 function Register() {
-  const [userData, setUserData] = useState({
-    name: "",
-    username: "",
-    email: "",
-    password: "",
-    confirm_password: ""
-  })
 
-  const handleChange = (e) => {
-    e.preventDefault()
-    setUserData({
-      ...userData,
-      [e.target.name]:e.target.value
-    })
+  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [passwordconfirmation, setPasswordConfirmation] = useState("");
+  const [error, setErrors] = useState([]);
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    fetch("/customers", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      body: JSON.stringify({
+        username,
+        email,
+        password,
+        password_confirmation: passwordconfirmation,
+      }),
+    }).then((res) => {
+      if (res.ok) {
+        return (<Redirect to="/login"/>)
+      } else {
+        res.json().then((err) => {
+          console.log(err.errors);
+          setErrors(err.errors)
+        });
+      }
+    });
   }
-
-  const handleSubmit = (e) => {
-    e.preventDefault()
-
-    fetch("/auth/signup",{
-        method: "POST",
-        headers:{
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(userData)
-      })
-
-      setUserData({
-        name: "",
-        username: "",
-        email: "",
-        password: "",
-        confirm_password: ""
-      })
-    }
+  
 
   return (
-
-    <div
-      style={{
-        backgroundImage: `url(${background})`,
-        backgroundPosition: "center",
-        backgroundSize: "cover",
-        backgroundRepeat: "no-repeat",
-        height: "800px",
-      }}
-    >
-      <form className="forms">
-        <h1 id="user">User Registration</h1>
     <div>
       <form className="forms" onSubmit={handleSubmit}>
-        <h1 id='user'>User Registration</h1>
-        <label>Name</label>
-        <input type="text" className="form" placeholder="Name" name="name" value={userData.name} onChange={handleChange}/>
+        <h1 id="user">User Registration</h1>
         <label>Username</label>
-        <input type="text" className="form" placeholder="Username" name="username" value={userData.username} onChange={handleChange}/>
+        <input
+          type="text"
+          className="form"
+          placeholder="Username"
+          name="username"
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
+        />
         <label>Email</label>
-        <input type="email" className="form" placeholder="email" name="email" value={userData.email} onChange={handleChange}/>
+        <input
+          type="email"
+          className="form"
+          placeholder="email"
+          name="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+        />
         <label>Password</label>
-        <input type="password" className="form" placeholder="Password" name="password" value={userData.password} onChange={handleChange}/>
+        <input
+          type="password"
+          className="form"
+          placeholder="Password"
+          name="password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
         <label>Confirm Password</label>
         <input
           type="password"
           className="form"
           placeholder="Confirm Password"
-          name='confirm_password'
-          value={userData.confirm_password}
-          onChange={handleChange}/>
+          name="confirm_password"
+          onChange={(e) => setPasswordConfirmation(e.target.value)}
+        />
         <br />
         <br />
         <button className="btn" type="submit">
           Register
         </button>
-        </form>
-        </div>
+
       </form>
+      <h2>Already have an account? <Link to = "/login">login</Link></h2>
+      <div>
+        {error.map((er) => (
+          <h2 key={er}>{er}!</h2>
+        ))}
+      </div>
     </div>
   );
 }
