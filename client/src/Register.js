@@ -21,7 +21,7 @@ function Register() {
   const handleSubmit = (e) => {
     e.preventDefault()
 
-    fetch("/customers",{
+    fetch("/auth/signup",{
         method: "POST",
         headers:{
           "Content-Type": "application/json",
