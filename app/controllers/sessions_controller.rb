@@ -3,9 +3,10 @@ class SessionsController < ApplicationController
     skip_before_action :authorize, only: [:create]    
     
     def create
-        user = find_user
+        user = Customer.find_by(username: params[:username])
+        # byebug
         if user&.authenticate(params[:password])
-            session[:user_id] ||= user.id
+            session[:user_id] = user.id
             render json: user, status: :created
         else
             #session.delete :user_id
@@ -19,13 +20,8 @@ class SessionsController < ApplicationController
     end
 
     private
-
-    def find_user
-        User.find_by(username: params[:username])
-    end
     
     def authorize
         return render json: {errors: ["user was not authenticated"]}, status: :unauthorized unless session.include? :user_id
-    end
-end 
+    end 
 end

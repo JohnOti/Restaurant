@@ -11,7 +11,9 @@ function App() {
   const [ restaurants, setRestaurants] = useState([])
   const [ location, setLocation] = useState([])
   const [ menus, setMenus ] = useState([])
-  const [ restaurantId, setRestaurantId] = useState("")
+  const [restaurantId, setRestaurantId] = useState("")
+  // const [cuisines, setCuisines] = useState([]);
+  const [searchCuisine, setSearchCuisine] = useState("");
 
   useEffect(()=>{
     
@@ -36,6 +38,7 @@ function App() {
     fetch("/menus")
     .then(r => r.json())
     .then(d => setMenus(d))
+    
     .catch(err => console.error(err))
 
   }, [])
