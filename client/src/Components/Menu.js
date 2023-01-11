@@ -21,20 +21,34 @@ const Menu = ({ filterByRestId, restaurant, handleMenu}) => {
         )
     })
 
-    return(
-        <div>
-            <div style={{
-                textAlign:"center",
-            }}>
-                <Link to={`/menu/make-reservation/${filterByRestId.restaurant.name}`}>
-                    <button onClick={filterByRestId.handleMenu} value={filterByRestId.restaurant.id} id="btn-sec">make reservation</button>
-                </Link>
-            </div>
-            <>
-                {menu}
-            </>
+    return (
+      <div
+        className="menus"
+        style={{
+          background: "white",
+        }}
+      >
+        <div>{menu}</div>
+        <div
+          style={{
+            textAlign: "center",
+            display: "flex",
+            marginRight: "300px"
+            // background: "white",
+          }}
+        >
+          <Link to={`/menu/make-reservation/${filterByRestId.restaurant.name}`}>
+            <button
+              onClick={filterByRestId.handleMenu}
+              value={filterByRestId.restaurant.id}
+              className="butt"
+            >
+              <span> reserve</span>
+            </button>
+          </Link>
         </div>
-    )
+      </div>
+    );
 }
 
 export default Menu;
