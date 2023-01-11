@@ -6,6 +6,20 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
+Location.create!([
+     {         "city": "Nairobi"
+   },
+    {
+        "city": "Mombasa"
+    },
+     {
+        "city": "Nakuru" 
+    },
+    {
+         "city": "Kisumu"
+    }
+])
+
  FavoriteRestaurant.create!([
    {
       "name": "Mama Rocks Gourmet Burgers",
@@ -34,19 +48,7 @@
     }
 ])
 
-Location.create!([
-     {         "city": "Nairobi"
-   },
-    {
-        "city": "Mombasa"
-    },
-     {
-        "city": "Nakuru" 
-    },
-    {
-         "city": "Kisumu"
-    }
-])
+
 
 Menu.create!([
     {
