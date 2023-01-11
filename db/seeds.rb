@@ -64,12 +64,13 @@ Menu.create!([
         "image": "https://images.bolt.eu/store/2022/2022-03-01/4f9b96e3-861a-42ae-96f2-21cb76b1ebe4.png",
         "ingredients": "butter, cheese, chicken, cumin, cadamoms, black pepper"
     },
+    {
             "cuisine": "Panko Zucchini",
         "price": 450,
         "favorite_restaurant_id": 3,
         "image": "https://images.bolt.eu/store/2022/2022-11-29/ec9db61c-8281-40cf-b8bd-f013d797f80f.jpeg",
        "ingredients": "zesty mayo, butter, fish, cadamoms, black pepper"
-    },
+},
     {
         "cuisine": "Pork Ribs",
         "price": 2150,
