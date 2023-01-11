@@ -59,7 +59,7 @@ const Restaurants = ({ restaurants, location, handleMenu }) => {
        .then((res) => res.json())
        .then((cuisines) => {
          setCuisines(cuisines);
-         console.log(cuisines);
+        //  console.log(cuisines);
          setSearchCuisine(cuisines);
        })
        .catch((error) => {
@@ -76,10 +76,10 @@ const Restaurants = ({ restaurants, location, handleMenu }) => {
       )
     );
   }
-  const food = cuisines.map((re) => (
-    <div key={re.id}>
-      <p>{re.cuisine}</p>
-    </div>));
+  // const food = cuisines.map((re) => (
+  //   <div key={re.id}>
+  //     <p>{re.cuisine}</p>
+  //   </div>));
 
   return (
     <div

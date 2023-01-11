@@ -1,5 +1,6 @@
 class CustomersController < ApplicationController
   before_action :set_customer, only: %i[ show update destroy ]
+ rescue_from ActiveRecord::RecordInvalid, with: :invalid_record_response
 
   # GET /customers
   def index
@@ -15,13 +16,10 @@ class CustomersController < ApplicationController
 
   # POST /customers
   def create
-    @customer = Customer.new(customer_params)
-
-    if @customer.save
-      render json: @customer, status: :created, location: @customer
-    else
-      render json: @customer.errors, status: :unprocessable_entity
-    end
+    # byebug
+    @customer = Customer.create!(customer_params)
+    # session[:cusomer_id]= @customer.id
+    render json: @customer, status: :created
   end
 
   # PATCH/PUT /customers/1
@@ -46,6 +44,13 @@ class CustomersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def customer_params
-      params.require(:customer).permit(:username, :email, :password, :confirm_password)
+      params.permit(:username, :email, :password, :password_confirmation)
+    end
+
+    #Error handling
+   def invalid_record_response(e)
+      render json: {errors: e.record.errors.full_messages}, status: :unprocessable_entity
     end
 end
+
+
