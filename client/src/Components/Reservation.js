@@ -16,7 +16,7 @@ const Reservation = ( filterByRestId ) => {
         console.log(menuOptions)
 
         return(
-            <div>
+            <div className="reserve">
                 <h2>Your Reservation</h2>
                 <select name="menu">
                     <option value="All">Select Cuisine...</option>

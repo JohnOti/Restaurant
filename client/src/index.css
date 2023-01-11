@@ -42,6 +42,10 @@ label{
   margin: 10px 0px;
   cursor: pointer;
 }
+.reg{
+  background-color: rgb(8, 52, 84);
+  height: 89vh;
+}
 
 
 /* Navbar */
@@ -205,9 +209,10 @@ label{
   padding: 10px;
   margin-top: 10px;
   margin-bottom: 10px;
-  margin-left: 100px;
+  margin-left: 400px;
+  /* width: 30%; */
   margin-right: 100px;
-  background-color: #ebcf18;
+  background-color: rgb(168, 207, 241);
   color: black;
 
 }
@@ -221,20 +226,22 @@ label{
 }
 
 .menu {
-  background-color: #ffc14f;
+  background-color: rgb(168, 207, 241);
   position: relative;
   display: flex;
   padding: 10px;
   margin-top: 10px;
   margin-bottom: 10px;
+  width: 60%;
   margin-left: 100px;
   margin-right: 100px;
   border-radius: 10px;
 }
 
 #image {
-  width: 200px;
-  height: 150px;
+  width: 250px;
+  height: 200px;
+  /* border-radius: 6px; */
 }
 
 #add-icon-div {
@@ -248,4 +255,70 @@ label{
   font-size: 50px;
   font-weight: bold;
 
+}
+.search{
+  padding: 8px;
+  border-radius: 6px;
+}
+.select{
+  padding: 8px;
+  border-radius: 6px;
+  font-size: 20px;
+  width: 150%;
+  margin-left: 60px;
+  margin-top: 20px;
+  background-color: aliceblue;
+}
+.home{
+  display: flex;
+}
+.list{
+  width: 80%;
+}
+
+.butt {
+  border-radius: 6px;
+  background-color: #f4511e;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 28px;
+  padding: 8px;
+  width: 130px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+}
+
+.butt span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.butt span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.butt:hover span {
+  padding-right: 25px;
+}
+
+.butt:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+.reserve{
+  display: flex;
+  padding: 80px;
+}
+.menus{
+  display: flex;
 }
