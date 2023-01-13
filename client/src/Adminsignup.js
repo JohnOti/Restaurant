@@ -1,13 +1,27 @@
-import React, { useState } from 'react'
-import { Link } from 'react-router-dom';
+import React, { useState } from 'react';
+import { Link } from "react-router-dom";
 
-function Register({onLogin}) {
 
-  const [username, setUsername] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [passwordconfirmation, setPasswordConfirmation] = useState("");
-  const [error, setErrors] = useState([]);
+function Adminsignup({onLogin}) {
+//   const [username, setUsername] = useState("");
+//   const [email, setEmail] = useState("");
+//   const [password, setPassword] = useState("");
+//   const [passwordconfirmation, setPasswordConfirmation] = useState("");
+    const [error, setErrors] = useState([]);
+    
+    const [restaurant_data, setRestaurantdata] = useState({
+      name: "",
+      password: "",
+      password_confirmation: "",
+    });
+
+    function handleChange(e) {
+        e.preventDefault();
+        setRestaurantdata({
+            ...restaurant_data,
+            [e.target.name]:e.target.value
+        })
+    }
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -18,10 +32,7 @@ function Register({onLogin}) {
         Accept: "application/json",
       },
       body: JSON.stringify({
-        username,
-        email,
-        password,
-        password_confirmation: passwordconfirmation,
+        restaurant_data
       }),
     }).then((res) => {
       if (res.ok) {
@@ -29,12 +40,11 @@ function Register({onLogin}) {
       } else {
         res.json().then((err) => {
           console.log(err.errors);
-          setErrors(err.errors)
+          setErrors(err.errors);
         });
       }
     });
   }
-  
 
   return (
     <div>
@@ -45,18 +55,27 @@ function Register({onLogin}) {
           type="text"
           className="form"
           placeholder="Username"
-          name="username"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
+          name="name"
+          value={restaurant_data.name}
+          onChange={handleChange}
         />
         <label>Email</label>
         <input
-          type="email"
+          type="url"
           className="form"
           placeholder="email"
-          name="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
+          name="image"
+          value={restaurant_data.image}
+          onChange={handleChange}
+        />
+        <label>Location ID</label>
+        <input
+          type="number"
+          className="form"
+          placeholder="email"
+          name="image"
+          value={restaurant_data.location_id}
+          onChange={handleChange}
         />
         <label>Password</label>
         <input
@@ -64,8 +83,8 @@ function Register({onLogin}) {
           className="form"
           placeholder="Password"
           name="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
+          value={restaurant_data.password}
+          onChange={handleChange}
         />
         <label>Confirm Password</label>
         <input
@@ -73,16 +92,14 @@ function Register({onLogin}) {
           className="form"
           placeholder="Confirm Password"
           name="confirm_password"
-          onChange={(e) => setPasswordConfirmation(e.target.value)}
+          onChange={handleChange}
         />
         <br />
         <br />
         <button className="btn" type="submit">
           Register
         </button>
-
       </form>
-      <h2>Already have an account? <Link to = "/login">login</Link></h2>
       <div>
         {error.map((er) => (
           <h2 key={er}>{er}!</h2>
@@ -92,4 +109,4 @@ function Register({onLogin}) {
   );
 }
 
-export default Register
+export default Adminsignup;

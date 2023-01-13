@@ -2,14 +2,7 @@ import React from "react";
 
 const Reservation = ( filterByRestId ) => {
     console.log(filterByRestId.filterByRestId.filterByRestId)
-    // const [ reservation, setReservation] = useState({
-    //     customer_id: "",
-    //     menu_id: "",
-    //     no_of_seats: "",
-    //     favorite_restaurant_id: "",
-    //     total_price: ""
-    //   })
-  
+   
       const menuOptions = filterByRestId.filterByRestId.filterByRestId.map( item => 
         <option key={item.id} value={item.id}>{item.cuisine}</option>
         ) 

@@ -1,19 +1,33 @@
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route} from "react-router-dom";
 import About from "./About";
 import Login from "./Login";
 import Navbar from "./Navbar";
 import Register from "./Register";
 import Restaurants from "./Components/Restaurants";
 import ReservationPage from "./Components/ReservationPage";
-import React, { useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
+import Signup from "./Signup";
 
 function App() {
-  const [ restaurants, setRestaurants] = useState([])
-  const [ location, setLocation] = useState([])
-  const [ menus, setMenus ] = useState([])
+  const [restaurants, setRestaurants] = useState([])
+  const [location, setLocation] = useState([])
+  const [menus, setMenus] = useState([])
   const [restaurantId, setRestaurantId] = useState("")
-  // const [cuisines, setCuisines] = useState([]);
-  const [searchCuisine, setSearchCuisine] = useState("");
+  const [user, setUser] = useState(null);
+
+
+  useEffect(() => {
+    // auto-login
+    fetch("/me")
+      .then((r) => {
+        console.log(r)
+      if (r.ok) {
+        r.json().then((user) => setUser(user));
+      }
+    });
+  }, []);
+
+
 
   useEffect(()=>{
     
@@ -51,28 +65,37 @@ function App() {
 
   const filterByRestId = menus.filter( item => item.favorite_restaurant_id === parseInt(restaurantId))
 
+   if (!user) return <Login onLogin={setUser} />;
 
   return (
-    <div className="App" style={{
-      background: "#FAFAD2"
-    }}>
+    <div
+      className="App"
+      style={{
+        background: "#FAFAD2",
+      }}
+    >
       <Router>
-        <Navbar/>
+        <Navbar />
         <Switch>
-          <Route path="/about">
+          <Route exact path="/about">
             <About />
           </Route>
-          <Route path="/login">
-            <Login />
+          <Route exact path="/sign_up">
+            <Signup onLogin={setUser} />
           </Route>
-          <Route path="/register">
-            <Register />
+          <Route exact path="/menu/:name">
+            <ReservationPage
+              filterByRestId={filterByRestId}
+              restaurant={restaurant}
+              handleMenu={handleMenu}
+            />
           </Route>
-          <Route path="/menu/:name">
-            <ReservationPage filterByRestId={filterByRestId} restaurant={restaurant} handleMenu={handleMenu}/>
-          </Route>
-          <Route exact path="/" >
-            <Restaurants restaurants={restaurants} location={location} handleMenu={handleMenu}/>
+          <Route exact path="/">
+            <Restaurants
+              restaurants={restaurants}
+              location={location}
+              handleMenu={handleMenu}
+            />
           </Route>
         </Switch>
       </Router>

@@ -1,8 +1,12 @@
-import React from 'react'
-import { Link } from 'react-router-dom';
+import React, { useEffect } from 'react'
+import { Link, useHistory } from 'react-router-dom';
 
 
 function Navbar() {
+  const history = useHistory();
+  useEffect(() => {
+    history.push("/")
+  },[])
     
   return (
     <div className="nav">
@@ -19,11 +23,7 @@ function Navbar() {
           <button id="btn-sec">Register</button>
         </Link>
       </div>
-      <div>
-        <Link to="/login">
-          <button id="btn-sec">Login</button>
-        </Link>
-      </div>
+      
       <div>
         <Link to="/about">
           <button id="btn-sec">About us</button>
