@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 
 const Restaurants = ({ restaurants, location, handleMenu }) => {
   const [locationFilter, setLocationFilter] = useState("All");
-  const [cuisines, setCuisines] = useState([]);
-  const [searchCuisine, setSearchCuisine] = useState("");
+
+  const history = useHistory();
 
   const locationList = location.map((loc) => (
     <option value={loc.id} key={loc.id}>
@@ -54,32 +54,6 @@ const Restaurants = ({ restaurants, location, handleMenu }) => {
 
   // console.log(restaurantList)
 
-   useEffect(() => {
-     fetch("/menus")
-       .then((res) => res.json())
-       .then((cuisines) => {
-         setCuisines(cuisines);
-        //  console.log(cuisines);
-         setSearchCuisine(cuisines);
-       })
-       .catch((error) => {
-         console.error("console error:", error);
-         console.log("Error!");
-       });
-   }, []);
-
-  function handleChange(e) {
-    e.preventDefault();
-    let searching = e.target.value.toLowerCase();
-    setCuisines(searchCuisine.filter((val) =>
-        val.cuisine.toLowerCase().includes(searching.toLowerCase())
-      )
-    );
-  }
-  // const food = cuisines.map((re) => (
-  //   <div key={re.id}>
-  //     <p>{re.cuisine}</p>
-  //   </div>));
 
   return (
     <div
@@ -100,20 +74,21 @@ const Restaurants = ({ restaurants, location, handleMenu }) => {
           padding: "0px",
         }}
       >
-        {/* <input
+        <input
           type="text"
           className="search"
           name="search"
           //   onChange={handleFilter}
-          onChange={handleChange}
           placeholder="Enter cuisine..."
-        /> */}
+        />
       </div>
       <div className="list">
         {restaurantList}
         {restaurantList}
         {/* {food} */}
       </div>
+
+      <button onClick={()=>history.push("/about")}>Navigate</button>
     </div>
   );
 };

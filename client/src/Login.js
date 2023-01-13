@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
-import { Redirect } from 'react-router-dom';
+import { BrowserRouter, Link } from "react-router-dom";
 
-function Login() {
+function Login({onLogin}) {
   
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setErrors] = useState([]);
-
 
 
   function handleSubmit(e) {
@@ -21,9 +20,13 @@ function Login() {
         username,
         password,
       }),
-    }).then((res) => {
+    })
+      .then((res) => {
+      console.log(res)
       if (res.ok) {
-        return <Redirect to="/login" />;
+        res.json().then((user) => {
+          onLogin(user);
+        });
       } else {
         res.json().then((err) => {
           console.log(err.errors);
@@ -57,6 +60,13 @@ function Login() {
           Login
         </button>
       </form>
+      <h2>
+        Don't have an account?
+        <BrowserRouter>
+          <Link to="/register">Register</Link>
+        </BrowserRouter>
+      </h2>
+
       <div>
         {error.map((er) => (
           <h2 key={er}>{er}!</h2>

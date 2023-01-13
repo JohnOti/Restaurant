@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_01_11_182230) do
+ActiveRecord::Schema[7.0].define(version: 2023_01_12_134042) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -30,6 +30,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_11_182230) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "image"
+    t.string "password_digest"
   end
 
   create_table "favorites", force: :cascade do |t|
@@ -55,12 +56,28 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_11_182230) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "ratings", force: :cascade do |t|
+    t.integer "favorite_restaurant_id"
+    t.integer "customer_id"
+    t.integer "rating"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "reservations", force: :cascade do |t|
     t.integer "customer_id"
     t.integer "favorite_restaurant_id"
     t.integer "menu_id"
     t.integer "no_of_seats"
     t.integer "total_price"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.integer "favorite_restaurant_id"
+    t.integer "customer_id"
+    t.string "comments"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
