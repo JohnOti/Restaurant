@@ -322,3 +322,37 @@ label{
 .menus{
   display: flex;
 }
+
+/* AddMenuPage */
+
+.form_box {
+   margin-left: 30px;
+   margin-top: 10px;
+}
+.form_box h4 {
+   margin-top: 10px;
+}
+
+.new_menu {
+   padding: 10px 25px;
+   width: 300px;
+}
+
+
+.btn01 {
+   background: #7c5dfa;
+   padding: 7px 25px;
+   border: none;
+   outline: none;
+   color: #fff;
+   font-size: .9rem;
+   border-radius: 5px;
+   cursor: pointer;
+
+}
+
+
+.btn01 {
+  padding: 5px 20px;
+  font-size: .7rem;
+}
