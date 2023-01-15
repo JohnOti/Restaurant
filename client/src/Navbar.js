@@ -23,7 +23,17 @@ function Navbar() {
           <button id="btn-sec">Register</button>
         </Link>
       </div>
-      
+      <div>
+        <Link to="/admin">
+          <button id="btn-sec">Admin</button>
+        </Link>
+      </div>
+      <div>
+        <Link to="/menu_page">
+          <button id="btn-sec">Admin</button>
+        </Link>
+      </div>
+
       <div>
         <Link to="/about">
           <button id="btn-sec">About us</button>
