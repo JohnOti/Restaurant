@@ -1,10 +1,8 @@
-import React, { useState, useEffect } from "react";
-import { Link, useHistory } from "react-router-dom";
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 const Restaurants = ({ restaurants, location, handleMenu }) => {
   const [locationFilter, setLocationFilter] = useState("All");
-
-  const history = useHistory();
 
   const locationList = location.map((loc) => (
     <option value={loc.id} key={loc.id}>
@@ -87,8 +85,6 @@ const Restaurants = ({ restaurants, location, handleMenu }) => {
         {restaurantList}
         {/* {food} */}
       </div>
-
-      <button onClick={()=>history.push("/about")}>Navigate</button>
     </div>
   );
 };

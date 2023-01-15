@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react'
 import { Link, useHistory } from 'react-router-dom';
 
-
 function Navbar() {
   const history = useHistory();
   useEffect(() => {
@@ -19,7 +18,7 @@ function Navbar() {
         </Link>
       </div>
       <div>
-        <Link to="/register">
+        <Link to="/sign_up">
           <button id="btn-sec">Register</button>
         </Link>
       </div>

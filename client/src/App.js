@@ -1,13 +1,10 @@
 import { BrowserRouter as Router, Switch, Route} from "react-router-dom";
 import About from "./About";
-import Login from "./Login";
 import Navbar from "./Navbar";
-import Register from "./Register";
 import Restaurants from "./Components/Restaurants";
 import ReservationPage from "./Components/ReservationPage";
+import LoginPage from "./Pages/LoginPage";
 import React, { useState, useEffect } from "react";
-import Signup from "./Signup";
-
 function App() {
   const [restaurants, setRestaurants] = useState([])
   const [location, setLocation] = useState([])
@@ -65,7 +62,7 @@ function App() {
 
   const filterByRestId = menus.filter( item => item.favorite_restaurant_id === parseInt(restaurantId))
 
-   if (!user) return <Login onLogin={setUser} />;
+   if (!user) return <LoginPage onLogin={setUser} location={location} />;
 
   return (
     <div
@@ -79,9 +76,6 @@ function App() {
         <Switch>
           <Route exact path="/about">
             <About />
-          </Route>
-          <Route exact path="/sign_up">
-            <Signup onLogin={setUser} />
           </Route>
           <Route exact path="/menu/:name">
             <ReservationPage

@@ -77,12 +77,10 @@ function Register({onLogin}) {
         />
         <br />
         <br />
-        <button className="btn" type="submit">
-          Register
+        <button type="submit">
+          Sign Up
         </button>
-
       </form>
-      <h2>Already have an account? <Link to = "/login">login</Link></h2>
       <div>
         {error.map((er) => (
           <h2 key={er}>{er}!</h2>
