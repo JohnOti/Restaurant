@@ -3,7 +3,7 @@ import About from "./About";
 import Navbar from "./Navbar";
 import Restaurants from "./Components/Restaurants";
 import ReservationPage from "./Components/ReservationPage";
-import LoginPage from "./Pages/LoginPage";
+import SignInPage from "./Pages/SignInPage";
 import React, { useState, useEffect } from "react";
 function App() {
   const [restaurants, setRestaurants] = useState([])
@@ -62,7 +62,7 @@ function App() {
 
   const filterByRestId = menus.filter( item => item.favorite_restaurant_id === parseInt(restaurantId))
 
-   if (!user) return <LoginPage onLogin={setUser} location={location} />;
+   if (!user) return <SignInPage onLogin={setUser} location={location} />;
 
   return (
     <div
