@@ -5,26 +5,15 @@ import Restaurants from "./Components/Restaurants";
 import ReservationPage from "./Components/ReservationPage";
 import SignInPage from "./Pages/SignInPage";
 import React, { useState, useEffect } from "react";
+import Adminviews from "./Adminviews";
+import AddMenuPage from "./AddMenuPage";
+
 function App() {
   const [restaurants, setRestaurants] = useState([])
   const [location, setLocation] = useState([])
   const [menus, setMenus] = useState([])
   const [restaurantId, setRestaurantId] = useState("")
   const [user, setUser] = useState(null);
-
-
-  useEffect(() => {
-    // auto-login
-    fetch("/me")
-      .then((r) => {
-        console.log(r)
-      if (r.ok) {
-        r.json().then((user) => setUser(user));
-      }
-    });
-  }, []);
-
-
 
   useEffect(()=>{
     
@@ -95,6 +84,6 @@ function App() {
       </Router>
     </div>
   );
-}
+=======
 
 export default App;

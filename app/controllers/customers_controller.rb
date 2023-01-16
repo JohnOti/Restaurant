@@ -11,7 +11,12 @@ class CustomersController < ApplicationController
 
   # GET /customers/1
   def show
-    render json: @customer
+    @customer = Customer.find_by(id: session[:user_id])
+    if @customer
+      render json: @customer
+    else
+      render json: { error: "Not authorized" }, status: :unauthorized
+    end
   end
 
   # POST /customers
