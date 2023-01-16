@@ -5,9 +5,10 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
-
+puts "seeding location"
 Location.create!([
-     {         "city": "Nairobi"
+     {  
+        "city": "Nairobi"
    },
     {
         "city": "Mombasa"
@@ -19,36 +20,50 @@ Location.create!([
          "city": "Kisumu"
     }
 ])
+puts "seeding restaurants"
+FavoriteRestaurant.create!([
 
- FavoriteRestaurant.create!([
+
    {
-      "name": "Mama Rocks Gourmet Burgers",
-      "reviews": "Best burgers in town!!",
-      "image": "https://images.unsplash.com/photo-1564758564527-b97d79cb27c1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8cmVzdGF1cmFudCUyMGZvb2R8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60",
-      "ratings": 5,
-      "location_id": 2    },
+    "name": "Mama Rocks Gourmet Burgers",
+    "email":"john33@gmail.com",
+    "password":"johnteeh",
+    "password_confirmation":"johnteeh",
+    "image": "https://images.unsplash.com/photo-1564758564527-b97d79cb27c1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8cmVzdGF1cmFudCUyMGZvb2R8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60",
+
+    "location_id": 2    
+    },
+
+
     {
-      "name": "Fogo Gaucho",
-      "reviews": "amazing service!!",
-      "image": "https://images.unsplash.com/photo-1600891964599-f61ba0e24092?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cmVzdGF1cmFudCUyMGZvb2R8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60",
-      "ratings": 4.5,
-      "location_id": 1
+    "name": "Fogo Gaucho",
+    "email":"john49@gmail.com",
+    "password":"johnteeh",
+    "password_confirmation":"johnteeh",
+    "image": "https://images.unsplash.com/photo-1600891964599-f61ba0e24092?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cmVzdGF1cmFudCUyMGZvb2R8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60",
+    "location_id": 1
     },
     {
         "name": "Lakeside Resort",
-        "reviews": "amazing service!!",
+        "email":"johnny@gmail.com",
+        "password":"johnteeh",
+        "password_confirmation":"johnteeh",
         "image": "https://images.unsplash.com/photo-1600891964599-f61ba0e24092?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cmVzdGF1cmFudCUyMGZvb2R8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60",
-        "ratings": 5,
-        "location_id": 4
-    },   {         "name": "Nakuru LakeView",
-       "reviews": "amazing !!",
+        "location_id":2
+     
+    },   
+    { 
+        "name": "Nakuru LakeView",
+       "email":"john45@gmail.com",
+        "password":"johnteeh",
+        "password_confirmation":"johnteeh",
        "image": "https://images.unsplash.com/photo-1564758564527-b97d79cb27c1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8cmVzdGF1cmFudCUyMGZvb2R8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60",
-        "ratings": 4.5,
+        
         "location_id": 3
     }
 ])
 
-
+puts "seeding menu"
 
 Menu.create!([
     {
@@ -102,7 +117,8 @@ Menu.create!([
         "image": "https://images.bolt.eu/store/2022/2022-03-01/4f9b96e3-861a-42ae-96f2-21cb76b1ebe4.png",
         "ingredients": "butter, cheese, chicken, cumin, cadamoms, black pepper"
     },
-    {         "cuisine": "Panko Zucchini",
+    {    
+        "cuisine": "Panko Zucchini",
          "price": 450,
          "favorite_restaurant_id": 1,
         "image": "https://images.bolt.eu/store/2022/2022-11-29/ec9db61c-8281-40cf-b8bd-f013d797f80f.jpeg",
@@ -180,3 +196,4 @@ Menu.create!([
         "ingredients": "meat, makaa, fire"
     }
 ])
+puts "Done seeding"

@@ -27,11 +27,12 @@ const RestaurantSignUp = ({ location, onLogin }) => {
 
   function handleSubmit(e) {
     e.preventDefault();
-    fetch("/customers", {
+    fetch("http://localhost:3000/favorite_restaurants", {
+      mode:"no-cors",
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        Accept: "application/json",
+        // Accept: "application/json",
       },
       body: JSON.stringify({
         restaurant_data
@@ -47,7 +48,7 @@ const RestaurantSignUp = ({ location, onLogin }) => {
       }
     });
   }
-
+    console.log(restaurant_data)
   return (
     <div>
       <form className="form" onSubmit={handleSubmit} style={{
@@ -64,7 +65,7 @@ const RestaurantSignUp = ({ location, onLogin }) => {
         />
         <label>Email</label>
         <input
-          type="url"
+          type="text"
           placeholder="email"
           name="email"
           value={restaurant_data.email}
@@ -72,7 +73,7 @@ const RestaurantSignUp = ({ location, onLogin }) => {
         />
         <label>Image</label>
         <input
-          type="url"
+          type="text"
           placeholder="add image"
           name="image"
           value={restaurant_data.image}

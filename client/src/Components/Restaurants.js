@@ -72,13 +72,13 @@ const Restaurants = ({ restaurants, location, handleMenu }) => {
           padding: "0px",
         }}
       >
-        <input
+        {/* <input
           type="text"
           className="search"
           name="search"
           //   onChange={handleFilter}
           placeholder="Enter cuisine..."
-        />
+        /> */}
       </div>
       <div className="list">
         {restaurantList}

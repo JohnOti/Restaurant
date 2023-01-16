@@ -17,17 +17,18 @@ function App() {
 
   useEffect(()=>{
     
-    fetch("/favorite_restaurants")
+    fetch("http://localhost:3000/favorite_restaurants")
     .then(r => r.json())
     .then(d => setRestaurants(d))
     .catch(err => console.error(err))
 
   }, [])
+  console.log(restaurants);
 
 
   useEffect(()=>{
     
-    fetch("/locations")
+    fetch("http://localhost:3000/locations")
     .then(r => r.json())
     .then(d => setLocation(d))
     .catch(err => console.error(err))
@@ -35,7 +36,7 @@ function App() {
   }, [])
   useEffect(()=>{
     
-    fetch("/menus")
+    fetch("http://localhost:3000/menus")
     .then(r => r.json())
     .then(d => setMenus(d))
     
@@ -51,16 +52,16 @@ function App() {
 
   const filterByRestId = menus.filter( item => item.favorite_restaurant_id === parseInt(restaurantId))
 
-  // useEffect(() => {
-  //   // auto-login
-  //   fetch("/me").then((r) => {
-  //     console.log(r);
-  //     if (r.ok) {
-  //       r.json().then((user) => setUser(user));
-  //     }
-  //   });
-  // }, []);
-
+  useEffect(() => {
+    // auto-login
+    fetch("http://localhost:3000/me").then((r) => {
+      console.log(r);
+      if (r.ok) {
+        r.json().then((user) => setUser(user));
+      }
+    });
+  }, []);
+  console.log(user)
   if (user) {
     return (
       <div
@@ -100,7 +101,14 @@ function App() {
       </div>
     );
   } else {
-    return <SignInPage onLogin={setUser} location={location}/>;
+    return (
+      <Router>
+        <Route exact path="/">
+          
+          <SignInPage onLogin={setUser} location={location}/>
+        </Route>
+      </Router>
+    );
   }
 }
 
