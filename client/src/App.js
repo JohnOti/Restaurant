@@ -51,39 +51,57 @@ function App() {
 
   const filterByRestId = menus.filter( item => item.favorite_restaurant_id === parseInt(restaurantId))
 
-   if (!user) return <SignInPage onLogin={setUser} location={location} />;
+  // useEffect(() => {
+  //   // auto-login
+  //   fetch("/me").then((r) => {
+  //     console.log(r);
+  //     if (r.ok) {
+  //       r.json().then((user) => setUser(user));
+  //     }
+  //   });
+  // }, []);
 
-  return (
-    <div
-      className="App"
-      style={{
-        background: "#FAFAD2",
-      }}
-    >
-      <Router>
-        <Navbar />
-        <Switch>
-          <Route exact path="/about">
-            <About />
-          </Route>
-          <Route exact path="/menu/:name">
-            <ReservationPage
-              filterByRestId={filterByRestId}
-              restaurant={restaurant}
-              handleMenu={handleMenu}
-            />
-          </Route>
-          <Route exact path="/">
-            <Restaurants
-              restaurants={restaurants}
-              location={location}
-              handleMenu={handleMenu}
-            />
-          </Route>
-        </Switch>
-      </Router>
-    </div>
-  );
-=======
+  if (user) {
+    return (
+      <div
+        className="App"
+        style={{
+          background: "#FAFAD2",
+        }}
+      >
+        <Router>
+          <Navbar />
+          <Switch>
+            <Route exact path="/about">
+              <About />
+            </Route>
+            {/* <Route exact path="/admin">
+              <Adminviews />
+            </Route>
+            <Route exact path="/menu_page">
+              <AddMenuPage />
+            </Route> */}
+            <Route exact path="/menu/:name">
+              <ReservationPage
+                filterByRestId={filterByRestId}
+                restaurant={restaurant}
+                handleMenu={handleMenu}
+              />
+            </Route>
+            <Route exact path="/">
+              <Restaurants
+                restaurants={restaurants}
+                location={location}
+                handleMenu={handleMenu}
+              />
+            </Route>
+          </Switch>
+        </Router>
+      </div>
+    );
+  } else {
+    return <SignInPage onLogin={setUser} location={location}/>;
+  }
+}
 
 export default App;
