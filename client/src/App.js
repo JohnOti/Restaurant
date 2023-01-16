@@ -1,12 +1,10 @@
 import { BrowserRouter as Router, Switch, Route} from "react-router-dom";
 import About from "./About";
-import Login from "./Login";
 import Navbar from "./Navbar";
-// import Register from "./Register";
 import Restaurants from "./Components/Restaurants";
 import ReservationPage from "./Components/ReservationPage";
+import SignInPage from "./Pages/SignInPage";
 import React, { useState, useEffect } from "react";
-import Signup from "./Signup";
 import Adminviews from "./Adminviews";
 import AddMenuPage from "./AddMenuPage";
 
@@ -53,62 +51,39 @@ function App() {
 
   const filterByRestId = menus.filter( item => item.favorite_restaurant_id === parseInt(restaurantId))
 
-  //  if (!user) return <Login onLogin={setUser} />;
+   if (!user) return <SignInPage onLogin={setUser} location={location} />;
 
-  useEffect(() => {
-    // auto-login
-    fetch("/me").then((r) => {
-      // console.log(r);
-      if (r.ok) {
-        r.json().then((user) => setUser(user));
-      }
-    });
-  }, []);
-
-  if (user) {
-    return (
-      <div
-        className="App"
-        style={{
-          background: "#FAFAD2",
-        }}
-      >
-        <Router>
-          <Navbar />
-          <Switch>
-            <Route exact path="/about">
-              <About />
-            </Route>
-            <Route exact path="/admin">
-              <Adminviews />
-            </Route>
-            <Route exact path="/menu_page">
-              <AddMenuPage />
-            </Route>
-            <Route exact path="/menu/:name">
-              <ReservationPage
-                filterByRestId={filterByRestId}
-                restaurant={restaurant}
-                handleMenu={handleMenu}
-              />
-            </Route>
-            <Route exact path="/">
-              <Restaurants
-                restaurants={restaurants}
-                location={location}
-                handleMenu={handleMenu}
-              />
-            </Route>
-          </Switch>
-        </Router>
-      </div>
-    );
-  } else {
-    return <Login onLogin={setUser} />;
-  }
-
-
-  // return 
-}
+  return (
+    <div
+      className="App"
+      style={{
+        background: "#FAFAD2",
+      }}
+    >
+      <Router>
+        <Navbar />
+        <Switch>
+          <Route exact path="/about">
+            <About />
+          </Route>
+          <Route exact path="/menu/:name">
+            <ReservationPage
+              filterByRestId={filterByRestId}
+              restaurant={restaurant}
+              handleMenu={handleMenu}
+            />
+          </Route>
+          <Route exact path="/">
+            <Restaurants
+              restaurants={restaurants}
+              location={location}
+              handleMenu={handleMenu}
+            />
+          </Route>
+        </Switch>
+      </Router>
+    </div>
+  );
+=======
 
 export default App;

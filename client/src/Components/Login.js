@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { BrowserRouter, Link } from "react-router-dom";
 
 function Login({onLogin}) {
   
@@ -60,13 +59,6 @@ function Login({onLogin}) {
           Login
         </button>
       </form>
-      <h2>
-        Don't have an account?
-        <BrowserRouter>
-          <Link to="/register">Register</Link>
-        </BrowserRouter>
-      </h2>
-
       <div>
         {error.map((er) => (
           <h2 key={er}>{er}!</h2>
