@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
-const Menu = ({ filterByRestId, restaurant, handleMenu }) => {
-  console.log(filterByRestId)
-    const menu = filterByRestId.filterByRestId.map( item => {
+const Menu = ({ filterByRestId, restaurant, handleMenu, handleOrderItems }) => {
+
+
+    const menu = filterByRestId.map( item => {
 
         return (
           <div className="menu" key={item.id}>
@@ -20,7 +21,10 @@ const Menu = ({ filterByRestId, restaurant, handleMenu }) => {
               <h4>{`Ksh. ${item.price}`}</h4>
             </div>
             <div id="add-icon-div">
-              <p id="add-icon">+</p>
+              <button 
+              value={item.id}
+              onClick={handleOrderItems}
+              >Add</button>
             </div>
           </div>
         );
@@ -28,32 +32,29 @@ const Menu = ({ filterByRestId, restaurant, handleMenu }) => {
 
     return (
       <div
-        className="menus"
         style={{
           background: "white",
         }}
       >
-        <div>{menu}</div>
-        <div
-          style={{
-            textAlign: "center",
-            display: "flex",
-            marginRight: "300px",
-            // background: "white",
-          }}
-        >
-          <Link to={`/menu/make-reservation/${filterByRestId.restaurant.name}`}>
-           
-              <button
-                onClick={filterByRestId.handleMenu}
-                value={filterByRestId.restaurant.id}
-                className="butt"
-              >
-                reserve
-              </button>
-           
-          </Link>
-        </div>
+        <div style={{
+                textAlign:"center"
+            }}>
+            <img src={restaurant.image} alt={restaurant.name} style={{
+                        height:"300px",
+                        width:"100%"
+                    }}/>
+                <h2> {restaurant.name} </h2>
+            </div>
+            <div style={{
+                display:"flex"
+            }}>
+                <Link to={`/menu/make-reservation/${restaurant.name}`}>
+                    <button onClick={handleMenu} value={restaurant.id} id="btn-sec">make reservation</button>
+                </Link>
+            </div>
+            <>
+                {menu}
+            </>
       </div>
     );
 }

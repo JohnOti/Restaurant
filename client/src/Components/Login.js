@@ -28,7 +28,6 @@ function Login({onLogin}) {
         });
       } else {
         res.json().then((err) => {
-          console.log(err.errors);
           setErrors(err.errors);
         });
       }
