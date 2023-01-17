@@ -1,7 +1,7 @@
 class FavoriteRestaurantsController < ApplicationController
   before_action :set_favorite_restaurant, only: %i[ show update destroy ]
   skip_before_action :authorize, only: [:create, :index] 
-
+  
   # GET /favorite_restaurants
   def index
     @favorite_restaurants = FavoriteRestaurant.all

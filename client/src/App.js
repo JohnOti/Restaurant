@@ -16,26 +16,24 @@ function App() {
   const [user, setUser] = useState(null);
 
   useEffect(()=>{
-    
-    fetch(" http://localhost:3000/favorite_restaurants")
+    fetch("http://localhost:3000/favorite_restaurants")
     .then(r => r.json())
     .then(d => setRestaurants(d))
     .catch(err => console.error(err))
 
   }, [])
+  console.log(restaurants);
 
 
   useEffect(()=>{
-    
-    fetch(" http://localhost:3000/locations")
+    fetch("http://localhost:3000/locations")
     .then(r => r.json())
     .then(d => setLocation(d))
     .catch(err => console.error(err))
 
   }, [])
   useEffect(()=>{
-    
-    fetch(" http://localhost:3000/menus")
+    fetch("http://localhost:3000/menus")
     .then(r => r.json())
     .then(d => setMenus(d))
     
@@ -52,18 +50,18 @@ function App() {
   const filterByRestId = menus.filter( item => item.favorite_restaurant_id === parseInt(restaurantId))
 
   useEffect(() => {
-    // auto-login
-    fetch(" http://localhost:3000/me").then((r) => {
+    fetch("http://localhost:3000/me").then((r) => {
+      console.log(r);
       if (r.ok) {
         r.json().then((user) => setUser(user));
       }
     });
   }, []);
   console.log(user)
-
   if (!user) {
     return <SignInPage onLogin={setUser} location={location}/>;
   }
+
     return (
       <div
         className="App"
@@ -100,7 +98,7 @@ function App() {
           </Switch>
         </Router>
       </div>
-    );
+      );
 }
 
 export default App;
