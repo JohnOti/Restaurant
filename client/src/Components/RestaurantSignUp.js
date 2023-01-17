@@ -27,7 +27,7 @@ const RestaurantSignUp = ({ location, onLogin }) => {
 
   function handleSubmit(e) {
     e.preventDefault();
-    fetch("/customers", {
+    fetch("/favorite_restaurants", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

@@ -1,5 +1,6 @@
 class LocationsController < ApplicationController
   before_action :set_location, only: %i[ show update destroy ]
+  skip_before_action :authorize, only: [:create, :index] 
 
   # GET /locations
   def index

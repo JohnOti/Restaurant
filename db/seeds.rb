@@ -7,8 +7,9 @@
 #   Character.create(name: "Luke", movie: movies.first)
 
 Location.create!([
-     {         "city": "Nairobi"
-   },
+     {         
+        "city": "Nairobi"
+    },
     {
         "city": "Mombasa"
     },
@@ -16,34 +17,37 @@ Location.create!([
         "city": "Nakuru" 
     },
     {
-         "city": "Kisumu"
+        "city": "Kisumu"
     }
 ])
 
  FavoriteRestaurant.create!([
    {
       "name": "Mama Rocks Gourmet Burgers",
-      "reviews": "Best burgers in town!!",
+      "password": "123456",
+      "email": "geo1@gmail.com",
       "image": "https://images.unsplash.com/photo-1564758564527-b97d79cb27c1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8cmVzdGF1cmFudCUyMGZvb2R8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60",
-      "ratings": 5,
-      "location_id": 2    },
+      "location_id": 2
+    },
     {
       "name": "Fogo Gaucho",
-      "reviews": "amazing service!!",
+      "password": "123456",
+      "email": "geo4@gmail.com",
       "image": "https://images.unsplash.com/photo-1600891964599-f61ba0e24092?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cmVzdGF1cmFudCUyMGZvb2R8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60",
-      "ratings": 4.5,
       "location_id": 1
     },
     {
         "name": "Lakeside Resort",
-        "reviews": "amazing service!!",
+        "password": "123456",
+        "email": "geo2@gmail.com",
         "image": "https://images.unsplash.com/photo-1600891964599-f61ba0e24092?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cmVzdGF1cmFudCUyMGZvb2R8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60",
-        "ratings": 5,
         "location_id": 4
-    },   {         "name": "Nakuru LakeView",
-       "reviews": "amazing !!",
-       "image": "https://images.unsplash.com/photo-1564758564527-b97d79cb27c1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8cmVzdGF1cmFudCUyMGZvb2R8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60",
-        "ratings": 4.5,
+    },   
+    {
+        "name": "Nakuru LakeView",
+        "password": "123456",
+        "email": "geo3@gmail.com",
+        "image": "https://images.unsplash.com/photo-1564758564527-b97d79cb27c1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8cmVzdGF1cmFudCUyMGZvb2R8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60",
         "location_id": 3
     }
 ])
@@ -67,12 +71,12 @@ Menu.create!([
         "ingredients": "butter, cheese, chicken, cumin, cadamoms, black pepper"
     },
     {
-            "cuisine": "Panko Zucchini",
+        "cuisine": "Panko Zucchini",
         "price": 450,
         "favorite_restaurant_id": 3,
         "image": "https://images.bolt.eu/store/2022/2022-11-29/ec9db61c-8281-40cf-b8bd-f013d797f80f.jpeg",
        "ingredients": "zesty mayo, butter, fish, cadamoms, black pepper"
-},
+    },
     {
         "cuisine": "Pork Ribs",
         "price": 2150,

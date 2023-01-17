@@ -17,7 +17,7 @@ function App() {
 
   useEffect(()=>{
     
-    fetch("/favorite_restaurants")
+    fetch(" http://localhost:3000/favorite_restaurants")
     .then(r => r.json())
     .then(d => setRestaurants(d))
     .catch(err => console.error(err))
@@ -27,7 +27,7 @@ function App() {
 
   useEffect(()=>{
     
-    fetch("/locations")
+    fetch(" http://localhost:3000/locations")
     .then(r => r.json())
     .then(d => setLocation(d))
     .catch(err => console.error(err))
@@ -35,7 +35,7 @@ function App() {
   }, [])
   useEffect(()=>{
     
-    fetch("/menus")
+    fetch(" http://localhost:3000/menus")
     .then(r => r.json())
     .then(d => setMenus(d))
     
@@ -51,17 +51,19 @@ function App() {
 
   const filterByRestId = menus.filter( item => item.favorite_restaurant_id === parseInt(restaurantId))
 
-  // useEffect(() => {
-  //   // auto-login
-  //   fetch("/me").then((r) => {
-  //     console.log(r);
-  //     if (r.ok) {
-  //       r.json().then((user) => setUser(user));
-  //     }
-  //   });
-  // }, []);
+  useEffect(() => {
+    // auto-login
+    fetch(" http://localhost:3000/me").then((r) => {
+      if (r.ok) {
+        r.json().then((user) => setUser(user));
+      }
+    });
+  }, []);
+  console.log(user)
 
-  if (user) {
+  if (!user) {
+    return <SignInPage onLogin={setUser} location={location}/>;
+  }
     return (
       <div
         className="App"
@@ -75,10 +77,10 @@ function App() {
             <Route exact path="/about">
               <About />
             </Route>
-            {/* <Route exact path="/admin">
-              <Adminviews />
+            <Route exact path="/admin">
+              <SignInPage onLogin={setUser} location={location}/>
             </Route>
-            <Route exact path="/menu_page">
+            {/* <Route exact path="/menu_page">
               <AddMenuPage />
             </Route> */}
             <Route exact path="/menu/:name">
@@ -99,9 +101,6 @@ function App() {
         </Router>
       </div>
     );
-  } else {
-    return <SignInPage onLogin={setUser} location={location}/>;
-  }
 }
 
 export default App;

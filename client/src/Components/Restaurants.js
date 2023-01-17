@@ -66,20 +66,6 @@ const Restaurants = ({ restaurants, location, handleMenu }) => {
           {locationList}
         </select>
       </div>
-      <div
-        style={{
-          // textAlign: "center",
-          padding: "0px",
-        }}
-      >
-        <input
-          type="text"
-          className="search"
-          name="search"
-          //   onChange={handleFilter}
-          placeholder="Enter cuisine..."
-        />
-      </div>
       <div className="list">
         {restaurantList}
         {restaurantList}
