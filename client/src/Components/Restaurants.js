@@ -42,8 +42,7 @@ const Restaurants = ({ restaurants, location, handleMenu }) => {
             value={res.id}
             className="butt"
             id="btn-sec"
-          >
-            <span> Menu</span>
+          >Menu
           </button>
         </Link>
       </div>

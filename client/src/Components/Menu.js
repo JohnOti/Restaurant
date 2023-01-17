@@ -44,13 +44,13 @@ const Menu = ({ filterByRestId, restaurant, handleMenu }) => {
         >
           <Link to={`/menu/make-reservation/${filterByRestId.restaurant.name}`}>
            
-              <span
+              <button
                 onClick={filterByRestId.handleMenu}
                 value={filterByRestId.restaurant.id}
                 className="butt"
               >
                 reserve
-              </span>
+              </button>
            
           </Link>
         </div>
