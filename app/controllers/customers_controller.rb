@@ -1,8 +1,7 @@
 class CustomersController < ApplicationController
   skip_before_action :authorize, only: [:create, :index]   
   before_action :set_customer, only: %i[ show update destroy ]
- rescue_from ActiveRecord::RecordInvalid, with: :invalid_record_response
-
+  skip_before_action :authorize, only: [:create, :show, :index] 
   # GET /customers
   def index
     @customers = Customer.all

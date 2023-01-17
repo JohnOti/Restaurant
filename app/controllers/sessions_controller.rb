@@ -1,6 +1,7 @@
 class SessionsController < ApplicationController
-    before_action :authorize
-    skip_before_action :authorize, only: [:create]    
+
+    skip_before_action :authorize, only: [:create, :get]    
+
     
     def create
         user = Customer.find_by(username: params[:username])

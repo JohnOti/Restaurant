@@ -28,7 +28,6 @@ const RestaurantSignUp = ({ location, onLogin }) => {
   function handleSubmit(e) {
     e.preventDefault();
     fetch("http://localhost:3000/favorite_restaurants", {
-      mode:"no-cors",
       method: "POST",
       headers: {
         "Content-Type": "application/json",

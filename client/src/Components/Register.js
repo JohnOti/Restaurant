@@ -13,6 +13,7 @@ function Register({onLogin}) {
     fetch("/customers", {
       method: "POST",
       headers: {
+        mode: "no-cors",
         "Content-Type": "application/json",
         Accept: "application/json",
       },

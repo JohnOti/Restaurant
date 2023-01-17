@@ -16,7 +16,6 @@ function App() {
   const [user, setUser] = useState(null);
 
   useEffect(()=>{
-    
     fetch("http://localhost:3000/favorite_restaurants")
     .then(r => r.json())
     .then(d => setRestaurants(d))
@@ -27,7 +26,6 @@ function App() {
 
 
   useEffect(()=>{
-    
     fetch("http://localhost:3000/locations")
     .then(r => r.json())
     .then(d => setLocation(d))
@@ -35,7 +33,6 @@ function App() {
 
   }, [])
   useEffect(()=>{
-    
     fetch("http://localhost:3000/menus")
     .then(r => r.json())
     .then(d => setMenus(d))
@@ -53,7 +50,6 @@ function App() {
   const filterByRestId = menus.filter( item => item.favorite_restaurant_id === parseInt(restaurantId))
 
   useEffect(() => {
-    // auto-login
     fetch("http://localhost:3000/me").then((r) => {
       console.log(r);
       if (r.ok) {
@@ -62,7 +58,10 @@ function App() {
     });
   }, []);
   console.log(user)
-  if (user) {
+  if (!user) {
+    return <SignInPage onLogin={setUser} location={location}/>;
+  }
+
     return (
       <div
         className="App"
@@ -76,10 +75,10 @@ function App() {
             <Route exact path="/about">
               <About />
             </Route>
-            {/* <Route exact path="/admin">
-              <Adminviews />
+            <Route exact path="/admin">
+              <SignInPage onLogin={setUser} location={location}/>
             </Route>
-            <Route exact path="/menu_page">
+            {/* <Route exact path="/menu_page">
               <AddMenuPage />
             </Route> */}
             <Route exact path="/menu/:name">
@@ -99,17 +98,7 @@ function App() {
           </Switch>
         </Router>
       </div>
-    );
-  } else {
-    return (
-      <Router>
-        <Route exact path="/">
-          
-          <SignInPage onLogin={setUser} location={location}/>
-        </Route>
-      </Router>
-    );
-  }
+      );
 }
 
 export default App;
