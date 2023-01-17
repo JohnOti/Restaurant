@@ -68,7 +68,6 @@ const Restaurants = ({ restaurants, location, handleMenu }) => {
       </div>
       <div className="list">
         {restaurantList}
-        {/* {food} */}
       </div>
     </div>
   );
