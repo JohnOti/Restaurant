@@ -37,54 +37,56 @@ const AddMenuPage = ({ menus, setMenus }) => {
 
   return (
     <div className="form_box">
-      <h4>Add a new menu</h4>
-      <form onSubmit={handleSubmit}>
-        <label for="cuisine">Cuisine:</label>
-        <br></br>
-        <input
-          className="new_menu"
-          type="text"
-          placeholder="Enter Cuisine name"
-          onChange={handleChange}
-          name="cuisine"
-        />
-        <br></br>
-        <label for="price">Price:</label>
-        <br></br>
-        <input
-          className="new_menu"
-          type="text"
-          placeholder="Enter value in KSH"
-          onChange={handleChange}
-          name="price"
-        />
-        <br></br>
-        <label for="image">Image:</label>
-        <br></br>
-        <input
-          className="new_menu"
-          type="text"
-          placeholder="image_url"
-          onChange={handleChange}
-          name="image"
-        />
-        <br></br>
+      <h3 className="h3-form_box">Add a new menu</h3>
+      <div className="menu-form">
+        <form onSubmit={handleSubmit} className="menu-page">
+          <label for="cuisine">Cuisine:</label>
+          <br />
+          <input
+            className="inputs"
+            type="text"
+            placeholder="Enter Cuisine name"
+            onChange={handleChange}
+            name="cuisine"
+          />
+          <br></br>
+          <label for="price">Price:</label>
+          <br></br>
+          <input
+            className="inputs"
+            type="text"
+            placeholder="Enter value in KSH"
+            onChange={handleChange}
+            name="price"
+          />
+          <br></br>
+          <label for="image">Image:</label>
+          <br></br>
+          <input
+            className="inputs"
+            type="text"
+            placeholder="image_url"
+            onChange={handleChange}
+            name="image"
+          />
+          <br></br>
 
-        <label for="ingredients">Ingredients:</label>
-        <br></br>
-        <input
-          className="new_menu"
-          type="text"
-          placeholder="list the ingredients"
-          onChange={handleChange}
-          name="ingredients"
-        />
-        <br></br>
-
-        <button type="submit" className="btn">
-          Submit
-        </button>
-      </form>
+          <label for="ingredients">Ingredients:</label>
+          <br></br>
+          <input
+            className="inputs"
+            type="text"
+            placeholder="list the ingredients"
+            onChange={handleChange}
+            name="ingredients"
+          />
+          <br />
+          <br />
+          <button type="submit" className="btn">
+            Submit
+          </button>
+        </form>
+      </div>
     </div>
   );
 };

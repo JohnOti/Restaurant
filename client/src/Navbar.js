@@ -28,8 +28,13 @@ function Navbar() {
         </Link>
       </div>
       <div>
+        <Link to="/admin_views">
+          <button id="btn-sec">Admin views</button>
+        </Link>
+      </div>
+      <div>
         <Link to="/menu_page">
-          <button id="btn-sec">Admin</button>
+          <button id="btn-sec">Add Menu</button>
         </Link>
       </div>
 

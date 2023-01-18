@@ -39,11 +39,11 @@ function Register({onLogin}) {
   return (
     <div>
       <form className="forms" onSubmit={handleSubmit}>
-        <h1 id="user">User Registration</h1>
+        <h3 id="user">User Registration</h3>
         <label>Username</label>
         <input
           type="text"
-          className="form"
+          className="inputs"
           placeholder="Username"
           name="username"
           value={username}
@@ -52,7 +52,7 @@ function Register({onLogin}) {
         <label>Email</label>
         <input
           type="email"
-          className="form"
+          className="inputs"
           placeholder="email"
           name="email"
           value={email}
@@ -61,7 +61,7 @@ function Register({onLogin}) {
         <label>Password</label>
         <input
           type="password"
-          className="form"
+          className="inputs"
           placeholder="Password"
           name="password"
           value={password}
@@ -70,14 +70,14 @@ function Register({onLogin}) {
         <label>Confirm Password</label>
         <input
           type="password"
-          className="form"
+          className="inputs"
           placeholder="Confirm Password"
           name="confirm_password"
           onChange={(e) => setPasswordConfirmation(e.target.value)}
         />
         <br />
         <br />
-        <button type="submit">
+        <button type="submit"className='btn-sec'>
           Sign Up
         </button>
       </form>

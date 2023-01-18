@@ -28,10 +28,7 @@ const Menu = ({ filterByRestId, restaurant, handleMenu }) => {
 
     return (
       <div
-        className="menus"
-        style={{
-          background: "white",
-        }}
+        className="res-menu"
       >
         <div>{menu}</div>
         <div

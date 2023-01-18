@@ -5,8 +5,9 @@ import Restaurants from "./Components/Restaurants";
 import ReservationPage from "./Components/ReservationPage";
 import SignInPage from "./Pages/SignInPage";
 import React, { useState, useEffect } from "react";
-import Adminviews from "./Adminviews";
 import AddMenuPage from "./AddMenuPage";
+import Footer from "./Footer";
+import Adminviews from "./Adminviews";
 
 function App() {
   const [restaurants, setRestaurants] = useState([])
@@ -76,11 +77,14 @@ function App() {
               <About />
             </Route>
             <Route exact path="/admin">
-              <SignInPage onLogin={setUser} location={location}/>
+              <SignInPage onLogin={setUser} location={location} />
             </Route>
-            {/* <Route exact path="/menu_page">
+            <Route exact path="/menu_page">
               <AddMenuPage />
-            </Route> */}
+            </Route>
+            <Route exact path="/admin_views">
+              <Adminviews />
+            </Route>
             <Route exact path="/menu/:name">
               <ReservationPage
                 filterByRestId={filterByRestId}
@@ -96,9 +100,10 @@ function App() {
               />
             </Route>
           </Switch>
+          <Footer />
         </Router>
       </div>
-      );
+    );
 }
 
 export default App;
