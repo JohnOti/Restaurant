@@ -8,15 +8,15 @@ const Reservation = ( filterByRestId ) => {
         ) 
         console.log(menuOptions)
 
-        return(
-            <div className="reserve">
-                <h2>Your Reservation</h2>
-                <select name="menu">
-                    <option value="All">Select Cuisine...</option>
-                    {menuOptions}
-                </select>
-            </div>
-        )
+        return (
+          <div className="res-reserve">
+            <h2>Your Reservation</h2>
+            <select name="menu">
+              <option value="All">Select Cuisine...</option>
+              {menuOptions}
+            </select>
+          </div>
+        );
 }
 
 export default Reservation;

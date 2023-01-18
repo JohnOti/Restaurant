@@ -95,7 +95,7 @@ Menu.create!([
     {
         "cuisine": "Dilliwala Butter Chicken",
         "price": 1250,
-        "favorite_restaurant_id": 4,
+        "favorite_restaurant_id": 3,
         "image": "https://images.bolt.eu/store/2022/2022-03-01/4f9b96e3-861a-42ae-96f2-21cb76b1ebe4.png",
         "ingredients": "butter, cheese, chicken, cumin, cadamoms, black pepper"
     },
@@ -116,14 +116,14 @@ Menu.create!([
     {
         "cuisine": "Pork Chops",
         "price": 1200,
-        "favorite_restaurant_id": 4,
+        "favorite_restaurant_id": 2,
         "image": "https://cdn.apartmenttherapy.info/image/upload/f_auto,q_auto:eco,c_fill,g_center,w_730,h_913/k%2FPhoto%2FSeries%2F2022-03_HT_Pan-fried-pork-chops%2F2022-02-22_ATK-4852",
         "ingredients": "Accompanied with either French fries, mashed potato wedges, steamed potatoes, ugali, or mixed vegetables in season."
    },
     {
         "cuisine": "Chicken Tikka Masala",
        "price": 1650,
-       "favorite_restaurant_id": 4,
+       "favorite_restaurant_id": 1,
        "image": "https://images.bolt.eu/store/2022/2022-03-01/71aeedeb-0e36-4fed-a426-691306cf5f86.png",
        "ingredients": "chicken, cumin, cadamoms, black pepper"
 
@@ -145,7 +145,7 @@ Menu.create!([
     {
         "cuisine": "Pork Ribs",
         "price": 2150,
-        "favorite_restaurant_id": 4,
+        "favorite_restaurant_id": 1,
         "image": "https://cafedelites.com/wp-content/uploads/2018/06/Oven-Pork-Ribs-IMAGE-5-683x1024.jpg",
          "ingredients": "Marinated Baby ribs, Slow Charcoal grilled and mopped in Josephine’s Original Barbecue sauce served with sauce of Choicee"
     },
@@ -159,7 +159,7 @@ Menu.create!([
     {
         "cuisine": "Mbuzi Choma",
         "price": 1250,
-        "favorite_restaurant_id": 4,
+        "favorite_restaurant_id": 3,
         "image": "https://meatings.nyamatamu.co.ke/wp-content/uploads/2016/10/RoastGoatLeg-1.jpg",
         "ingredients": "meat, makaa, fire"
     },

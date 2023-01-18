@@ -18,12 +18,12 @@ const SignInPage = ({ onLogin, location }) => {
                         borderBottom: "1px solid #ccc",
                         margin: "16px 0"
                     }}>
-                    <p>
+                    <h4>
                         Don't have an account? &nbsp;
-                        <button color="secondary" onClick={() => setShowLogin(false)}>
+                        <button className='btn-sec' onClick={() => setShowLogin(false)}>
                             Sign Up
                         </button>
-                    </p>
+                    </h4>
                     </div>
                 </>
             ) : (
@@ -34,12 +34,12 @@ const SignInPage = ({ onLogin, location }) => {
                         borderBottom: "1px solid #ccc",
                         margin: "16px 0"
                     }}>
-                    <p>
+                    <h4>
                         Already have an account? &nbsp;
                         <button color="secondary" onClick={() => setShowLogin(true)}>
                             Log In
                         </button>  
-                    </p>
+                    </h4>
                     </div>
                 </>
             )}
