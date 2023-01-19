@@ -98,8 +98,10 @@ const ReservationPage = ({ filterByRestId, restaurant, handleMenu, user, orders 
                     </Route>
                 </div>
             </div>
+          <div>
         </div>
-    )
+      </div>
+    );
 }
 
 export default ReservationPage;

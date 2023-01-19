@@ -1,7 +1,9 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 
 const Reservation = ( {handleChange, submitResDetails, reservation} ) => {
     const [confirm, setConfirm] = useState("confirm")
+
+    useEffect(()=>{})
 
     
     if(!confirm){
@@ -10,6 +12,7 @@ const Reservation = ( {handleChange, submitResDetails, reservation} ) => {
 
         return(
             <div >
+                <meta></meta>
                 <button
                 onClick={()=> console.log("niaje")}
                 >Back To Menu</button>
