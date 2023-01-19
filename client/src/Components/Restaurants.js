@@ -36,7 +36,7 @@ console.log(restaurants);
           />
         </Link>
         <h3>{res.name}</h3>
-        <Link to={`/menu/${res.name}`}>
+        <Link to={`/${res.name}`}>
           <button
             onClick={handleMenu}
             value={res.id}

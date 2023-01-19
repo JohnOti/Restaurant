@@ -1,27 +1,21 @@
 import React from 'react';
 
-const MyReservation = ({restaurant,resDetails, orders,user}) => {
-  console.log(resDetails)
-  console.log(orders)
-  console.log(restaurant)
-  console.log(user)
-    const details = resDetails.map(item => {
-
+const MyReservation = ({restaurants,resDetails, orders,user, handleDelete}) => {
+const details = user.reservations.map(item => {
         return(
             <tr>
-                <td>{restaurant[item.favorite_restaurant_id].name}</td>
+                <td>{restaurants[item.favorite_restaurant_id].name}</td>
                 <td>
-                    <select>
-                        <option>Ordered Meals</option>
-                        {orders.map(i => {
-                            return(
-                                <option>{i.meal}</option>
-                            )
-                        })}
-                    </select>
+                  <select>
+                  {user.orders.filter(i=> i.favorite_restaurant_id === item.favorite_restaurant_id)
+                  .map(i=> <option>{i.meal}</option>)}  
+                  </select>             
                 </td>
-                <td>{item.orders.map(i=> i.price).reduce((a,b)=> a + b)}</td>
-                <td>x</td>
+                <td>{user.orders.filter(i => i.favorite_restaurant_id === item.favorite_restaurant_id)
+                .map(i => i.price).reduce((a,b)=> a+b)}</td>
+                <button onClick={()=> handleDelete(parseInt(item.id))}>
+                  Remove
+                </button>
             </tr>
         )
     })

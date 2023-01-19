@@ -65,7 +65,12 @@ function App() {
 
        .catch((e) => console.log(e));
    }, []);
-    
+  const handleDelete = (id)=> {
+    fetch(`/reservations/${id}`,{
+      method:"DELETE",
+    });
+    setResDetails(resDetails.filter((reservation) => reservation.id !==id))
+    }
   const handleMenu = (e) => {
     setRestaurantId(e.target.value);
   }
@@ -107,16 +112,17 @@ function App() {
             </Route>
             <Route exact path="/my_reservations">
               <MyReservation
-                restaurant={restaurant}
+                restaurants={restaurants}
                 resDetails={resDetails}
                 orders={orders} 
                 user = {user}
+                handleDelete = {handleDelete}
               />
             </Route>
             <Route exact path="/admin_views">
               <Adminviews />
             </Route>
-            <Route exact path="/menu/:name">
+            <Route exact path="/:name">
               <ReservationPage
                 filterByRestId={filterByRestId}
                 restaurant={restaurant}
