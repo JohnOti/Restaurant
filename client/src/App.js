@@ -2,7 +2,6 @@ import { BrowserRouter as Router, Switch, Route} from "react-router-dom";
 import About from "./About";
 import Navbar from "./Navbar";
 import Restaurants from "./Components/Restaurants";
-import Menu from "./Components/Menu";
 import ReservationPage from "./Components/ReservationPage";
 import SignInPage from "./Pages/SignInPage";
 import React, { useState, useEffect } from "react";
@@ -11,9 +10,9 @@ function App() {
   const [restaurants, setRestaurants] = useState([])
   const [location, setLocation] = useState([])
   const [menus, setMenus] = useState([])
-  const [ orderItems, setOrderItems ] = useState([])
   const [restaurantId, setRestaurantId] = useState("")
   const [user, setUser] = useState(null);
+  const [ orders, setOrders ] = useState([])
 
   useEffect(()=>{
     fetch("http://localhost:3000/favorite_restaurants")
@@ -31,13 +30,20 @@ function App() {
     .catch(err => console.error(err))
 
   }, [])
+
   useEffect(()=>{
     fetch("http://localhost:3000/menus")
     .then(r => r.json())
     .then(d => setMenus(d))
-    
     .catch(err => console.error(err))
 
+  }, [])
+
+  useEffect(()=>{
+    fetch("http://localhost:3000/orders")
+    .then(r => r.json())
+    .then(d => setOrders(d))
+    .catch(err => console.error(err))
   }, [])
 
   const handleMenu = (e) => {
@@ -48,10 +54,7 @@ function App() {
 
   const filterByRestId = menus.filter( item => item.favorite_restaurant_id === parseInt(restaurantId))
 
-  const handleOrderItems = (e) => {
-    setOrderItems( orderItems => [...e.target.value, orderItems])
-  }
-  console.log(orderItems)
+
 
   useEffect(() => {
     fetch("http://localhost:3000/me").then((r) => {
@@ -84,16 +87,17 @@ function App() {
               <AddMenuPage />
             </Route> */}
             <Route exact path="/:name">
-              <Menu
+              <ReservationPage
                 filterByRestId={filterByRestId}
                 restaurant={restaurant}
                 handleMenu={handleMenu}
-                handleOrderItems={handleOrderItems}
+                user={user}
+                orders={orders}
               />
             </Route>
-            <Route path={`/menu/make-reservation/:name`}>
-              <ReservationPage filterByRestId={filterByRestId} />
-            </Route>
+            {/* <Route path={`/menu/make-reservation/:name`}>
+              < filterByRestId={filterByRestId} />
+            </Route> */}
             <Route exact path="/">
               <Restaurants
                 restaurants={restaurants}

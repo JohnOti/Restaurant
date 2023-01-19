@@ -50,12 +50,11 @@ const RestaurantSignUp = ({ location, onLogin }) => {
     console.log(restaurant_data)
   return (
     <div>
-      <form className="form" onSubmit={handleSubmit} style={{
-        display:"grid"
-      }}>
-        <h1 id="user">User Registration</h1>
+      <form className="forms" onSubmit={handleSubmit}>
+        <h2 id="user">Sign Up</h2>
         <label>Restaurant Name</label>
         <input
+        className='inputs' 
           type="text"
           placeholder="add name"
           name="name"
@@ -64,6 +63,7 @@ const RestaurantSignUp = ({ location, onLogin }) => {
         />
         <label>Email</label>
         <input
+        className='inputs'
           type="text"
           placeholder="email"
           name="email"
@@ -72,6 +72,7 @@ const RestaurantSignUp = ({ location, onLogin }) => {
         />
         <label>Image</label>
         <input
+        className='inputs'
           type="text"
           placeholder="add image"
           name="image"
@@ -85,6 +86,7 @@ const RestaurantSignUp = ({ location, onLogin }) => {
         </select>
         <label>Password</label>
         <input
+        className='inputs'
           type="password"
           placeholder="Password"
           name="password"
@@ -93,6 +95,7 @@ const RestaurantSignUp = ({ location, onLogin }) => {
         />
         <label>Confirm Password</label>
         <input
+        className='inputs'
           type="password"
           placeholder="Confirm Password"
           name="confirm_password"
@@ -100,7 +103,7 @@ const RestaurantSignUp = ({ location, onLogin }) => {
         />
         <br />
         <br />
-        <button className="btn" type="submit">
+        <button className="btn-sec" type="submit">
           Sign Up
         </button>
       </form>

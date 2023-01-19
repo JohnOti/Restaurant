@@ -6,7 +6,7 @@ class Customer < ApplicationRecord
     has_many :favorites
     has_many :ratings
     has_many :reviews
-    has_many :order_items
+    has_many :order
 
     
 

@@ -17,9 +17,14 @@ function Navbar() {
           <button id="btn-sec">Home</button>
         </Link>
       </div>
-      <div>
+      {/* <div>
         <Link to="/sign_up">
           <button id="btn-sec">Register</button>
+        </Link>
+      </div> */}
+      <div>
+        <Link to="my-reservations">
+          <button id="btn-sec">My Reservations</button>
         </Link>
       </div>
       <div>
@@ -27,17 +32,22 @@ function Navbar() {
           <button id="btn-sec">Admin</button>
         </Link>
       </div>
-      <div>
-        <Link to="/menu_page">
-          <button id="btn-sec">Admin</button>
+      {/* <div>
+        <Link to="/admin_views">
+          <button id="btn-sec">Admin views</button>
         </Link>
       </div>
-
       <div>
+        <Link to="/menu_page">
+          <button id="btn-sec">Add Menu</button>
+        </Link>
+      </div> */}
+
+      {/* <div>
         <Link to="/about">
           <button id="btn-sec">About us</button>
         </Link>
-      </div>
+      </div> */}
       <div>
         <Link to="/login">
           <button id="btn-sec">Logout</button>

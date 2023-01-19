@@ -37,26 +37,26 @@ const RestaurantLogin = ({onLogin}) => {
     return (
     <div className="login">
       <form className="forms" onSubmit={handleSubmit}>
-        <h1 id="user">Restaurant Login</h1>
+        <h2 id="user">Restaurant Login</h2>
         <label>Restaurant Name</label>
-        <input
+        <input 
           type="text"
-          className="form"
+          className="inputs"
           placeholder="name..."
           value={restaurantName}
           onChange={(e) => setRestaurnant(e.target.value)}
         />
         <label>Password</label>
-        <input
+        <input 
           type="password"
-          className="form"
+          className="inputs"
           placeholder="Password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
         <br />
         <br />
-        <button className="btn" type="submit">
+        <button className="btn-sec" type="submit">
           Login
         </button>
       </form>

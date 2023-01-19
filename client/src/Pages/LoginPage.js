@@ -5,14 +5,10 @@ const LoginPage = ({onLogin, location}) => {
     const [ userLogin, setUserLogin ] = useState(true);
 
     return (
-        <div style={{
-            maxWidth: "500px",
-            margin: "40px auto",
-            padding: "16px"
-        }}>
+        <div className='pages'>
             {userLogin ? (
                 <>
-                    <button color="secondary" onClick={() => setUserLogin(false)}>
+                    <button className='btn-sec' onClick={() => setUserLogin(false)}>
                         Login Restaurant
                     </button>
                     <Login onLogin={onLogin}/>

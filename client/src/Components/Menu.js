@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
-const Menu = ({ filterByRestId, restaurant, handleMenu, handleOrderItems }) => {
+const Menu = ({ filterByRestId, restaurant, handleMenu, handleOrderItems, addMenuIId }) => {
 
 
     const menu = filterByRestId.map( item => {
@@ -23,7 +23,7 @@ const Menu = ({ filterByRestId, restaurant, handleMenu, handleOrderItems }) => {
             <div id="add-icon-div">
               <button 
               value={item.id}
-              onClick={handleOrderItems}
+              onClick={addMenuIId}
               >Add</button>
             </div>
           </div>
@@ -35,6 +35,7 @@ const Menu = ({ filterByRestId, restaurant, handleMenu, handleOrderItems }) => {
         style={{
           background: "white",
         }}
+        className="res-menu"
       >
         <div style={{
                 textAlign:"center"

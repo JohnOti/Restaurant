@@ -37,24 +37,24 @@ function Login({onLogin}) {
   return (
     <div className="login">
       <form className="forms" onSubmit={handleSubmit}>
-        <h1 id="user">User Login</h1>
+        <h2 id="user">User Login</h2>
         <label>Username</label>
         <input
           type="text"
-          className="form"
+          className="inputs"
           placeholder="username"
           onChange={(e) => setUsername(e.target.value)}
         />
         <label>Password</label>
         <input
           type="password"
-          className="form"
+          className="inputs"
           placeholder="Password"
           onChange={(e) => setPassword(e.target.value)}
         />
         <br />
         <br />
-        <button className="btn" type="submit">
+        <button className="btn-sec" type="submit">
           Login
         </button>
       </form>
