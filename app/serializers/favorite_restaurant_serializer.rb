@@ -1,3 +1,3 @@
 class FavoriteRestaurantSerializer < ActiveModel::Serializer
-  attributes :id, :name, :image, :location_id
+  attributes :id, :name, :image, :location_id.:orders, :reservations
 end

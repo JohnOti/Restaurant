@@ -80,23 +80,23 @@ GEM
       activesupport
     concurrent-ruby (1.1.10)
     crass (1.0.6)
-    date (3.3.1)
-    debug (1.7.0)
+    date (3.3.3)
+    debug (1.7.1)
       irb (>= 1.5.0)
       reline (>= 0.3.1)
-    erubi (1.11.0)
+    erubi (1.12.0)
     globalid (1.0.0)
       activesupport (>= 5.0)
     i18n (1.12.0)
       concurrent-ruby (~> 1.0)
-    io-console (0.5.11)
-    irb (1.6.1)
+    io-console (0.6.0)
+    irb (1.6.2)
       reline (>= 0.3.0)
     jsonapi-renderer (0.2.2)
     loofah (2.19.1)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
-    mail (2.8.0)
+    mail (2.8.0.1)
       mini_mime (>= 0.1.1)
       net-imap
       net-pop
@@ -104,9 +104,9 @@ GEM
     marcel (1.0.2)
     method_source (1.0.0)
     mini_mime (1.1.2)
-    minitest (5.16.3)
+    minitest (5.17.0)
     msgpack (1.6.0)
-    net-imap (0.3.2)
+    net-imap (0.3.4)
       date
       net-protocol
     net-pop (0.1.2)
@@ -116,13 +116,13 @@ GEM
     net-smtp (0.3.3)
       net-protocol
     nio4r (2.5.8)
-    nokogiri (1.13.10-x86_64-linux)
+    nokogiri (1.14.0-x86_64-linux)
       racc (~> 1.4)
     pg (1.4.5)
     puma (5.6.5)
       nio4r (~> 2.0)
-    racc (1.6.1)
-    rack (2.2.4)
+    racc (1.6.2)
+    rack (2.2.6)
     rack-cors (1.1.1)
       rack (>= 2.0.0)
     rack-test (2.0.2)
@@ -181,7 +181,11 @@ DEPENDENCIES
   tzinfo-data
 
 RUBY VERSION
+<<<<<<< HEAD
+   ruby 3.1.3p185
+=======
    ruby 2.7.4p191
+>>>>>>> 5e06e9ff942b2ae10e3f501f413d349f1f0a7a0f
 
 BUNDLED WITH
-   2.3.26
+   2.4.3

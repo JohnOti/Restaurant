@@ -1,5 +1,6 @@
 class ReservationsController < ApplicationController
-  before_action :set_reservation, only: %i[ show update destroy ]
+  before_action :set_menu, only: %i[ show update destroy ]
+  skip_before_action :authorize, only: [:create, :index] 
 
   # GET /reservations
   def index

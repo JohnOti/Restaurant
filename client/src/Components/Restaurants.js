@@ -25,7 +25,7 @@ const Restaurants = ({ restaurants, location, handleMenu }) => {
   const restaurantList = restaurantFilter.map((res) => {
     return (
       <div key={res.id} className="grid">
-        <Link to={`/menu/${res.name}`}>
+        <Link to={`/${res.name}`}>
           <img
             src={res.image}
             alt={res.name}
@@ -36,14 +36,13 @@ const Restaurants = ({ restaurants, location, handleMenu }) => {
           />
         </Link>
         <h3>{res.name}</h3>
-        <Link to={`/menu/${res.name}`}>
+        <Link to={`/${res.name}`}>
           <button
             onClick={handleMenu}
             value={res.id}
             className="butt"
             id="btn-sec"
-          >
-            <span> Menu</span>
+          >Menu
           </button>
         </Link>
       </div>

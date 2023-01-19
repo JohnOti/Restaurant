@@ -5,9 +5,12 @@ import Restaurants from "./Components/Restaurants";
 import ReservationPage from "./Components/ReservationPage";
 import SignInPage from "./Pages/SignInPage";
 import React, { useState, useEffect } from "react";
+<<<<<<< HEAD
+=======
 import AddMenuPage from "./AddMenuPage";
 import Footer from "./Footer";
 import Adminviews from "./Adminviews";
+>>>>>>> 5e06e9ff942b2ae10e3f501f413d349f1f0a7a0f
 
 function App() {
   const [restaurants, setRestaurants] = useState([])
@@ -15,6 +18,7 @@ function App() {
   const [menus, setMenus] = useState([])
   const [restaurantId, setRestaurantId] = useState("")
   const [user, setUser] = useState(null);
+  const [ orders, setOrders ] = useState([])
 
   useEffect(()=>{
     fetch("http://localhost:3000/favorite_restaurants")
@@ -23,7 +27,6 @@ function App() {
     .catch(err => console.error(err))
 
   }, [])
-  console.log(restaurants);
 
 
   useEffect(()=>{
@@ -33,13 +36,20 @@ function App() {
     .catch(err => console.error(err))
 
   }, [])
+
   useEffect(()=>{
     fetch("http://localhost:3000/menus")
     .then(r => r.json())
     .then(d => setMenus(d))
-    
     .catch(err => console.error(err))
 
+  }, [])
+
+  useEffect(()=>{
+    fetch("http://localhost:3000/orders")
+    .then(r => r.json())
+    .then(d => setOrders(d))
+    .catch(err => console.error(err))
   }, [])
 
   const handleMenu = (e) => {
@@ -50,15 +60,15 @@ function App() {
 
   const filterByRestId = menus.filter( item => item.favorite_restaurant_id === parseInt(restaurantId))
 
+
+
   useEffect(() => {
     fetch("http://localhost:3000/me").then((r) => {
-      console.log(r);
       if (r.ok) {
         r.json().then((user) => setUser(user));
       }
     });
   }, []);
-  console.log(user)
   if (!user) {
     return <SignInPage onLogin={setUser} location={location}/>;
   }
@@ -81,17 +91,27 @@ function App() {
             </Route>
             <Route exact path="/menu_page">
               <AddMenuPage />
+<<<<<<< HEAD
+            </Route> */}
+            <Route exact path="/:name">
+=======
             </Route>
             <Route exact path="/admin_views">
               <Adminviews />
             </Route>
             <Route exact path="/menu/:name">
+>>>>>>> 5e06e9ff942b2ae10e3f501f413d349f1f0a7a0f
               <ReservationPage
                 filterByRestId={filterByRestId}
                 restaurant={restaurant}
                 handleMenu={handleMenu}
+                user={user}
+                orders={orders}
               />
             </Route>
+            {/* <Route path={`/menu/make-reservation/:name`}>
+              < filterByRestId={filterByRestId} />
+            </Route> */}
             <Route exact path="/">
               <Restaurants
                 restaurants={restaurants}

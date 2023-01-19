@@ -1,10 +1,8 @@
 *{
   margin: 0;
-  /* padding: 0; */
   box-sizing: border-box;
 }
 
-/* Register */
 .forms{
   color: rgb(237, 237, 237);
   background-color: rgb(8, 52, 84);
@@ -42,14 +40,11 @@
 }
 
 
-/* Navbar */
-
 .nav{
   background-color: rgb(14, 17, 19);
   display: flex;
   justify-content: space-around;
   padding: 25px;
-  /* position: fixed; */
   top: 0;
   z-index: 999;
 }
@@ -66,7 +61,10 @@
 .res-reserve{
   background-color: rgb(214, 218, 221);
 }
+<<<<<<< HEAD
+=======
 /* About */
+>>>>>>> 5e06e9ff942b2ae10e3f501f413d349f1f0a7a0f
 
 .about{
   background-color: rgb(8, 52, 84);
@@ -214,7 +212,6 @@
   margin-top: 10px;
   margin-bottom: 10px;
   margin-left: 400px;
-  /* width: 30%; */
   margin-right: 100px;
   background-color: rgb(168, 207, 241);
   color: black;
@@ -245,7 +242,6 @@
 #image {
   width: 250px;
   height: 200px;
-  /* border-radius: 6px; */
 }
 
 #add-icon-div {
@@ -328,8 +324,6 @@
   justify-content: center;
   background-color: rgb(220, 241, 245);
 }
-
-/* AddMenuPage */
 
 .form_box {
   display: flex;
@@ -421,4 +415,8 @@
   display: flex;
   justify-content: flex-end;
   margin-right: 5px;
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 5e06e9ff942b2ae10e3f501f413d349f1f0a7a0f
