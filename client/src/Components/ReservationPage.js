@@ -21,7 +21,6 @@ const ReservationPage = ({ filterByRestId, restaurant, handleMenu, user, orders 
         no_of_seats: "",
         total_price: ""
     })
-    console.log(filterByRestId)
 
     const addMenuId = () => {
         setCustomerId(user.id)
@@ -29,7 +28,6 @@ const ReservationPage = ({ filterByRestId, restaurant, handleMenu, user, orders 
     }
 
   const handleSubmit = (e) => {
-          console.log(e.target.value)
             e.preventDefault()
             fetch("http://localhost:3000/orders", {
                 method: "POST",
@@ -53,8 +51,6 @@ const ReservationPage = ({ filterByRestId, restaurant, handleMenu, user, orders 
                 [e.target.name]:e.target.value
             })
         }
-
-        console.log(reservation)
 
         const submitResDetails = (e) => {
             e.preventDefault()

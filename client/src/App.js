@@ -66,7 +66,7 @@ function App() {
        .catch((e) => console.log(e));
    }, []);
     
-  const handleMenu = (e) => { console.log(e.target.value)
+  const handleMenu = (e) => {
     setRestaurantId(e.target.value);
   }
 
@@ -74,7 +74,6 @@ function App() {
 
   const filterByRestId = menus.filter( item => item.favorite_restaurant_id === parseInt(restaurantId))
 
-console.log(filterByRestId)
 
   useEffect(() => {
     fetch("http://localhost:3000/me").then((r) => {
@@ -110,7 +109,8 @@ console.log(filterByRestId)
               <MyReservation
                 restaurant={restaurant}
                 resDetails={resDetails}
-                orders={orders}
+                orders={orders} 
+                user = {user}
               />
             </Route>
             <Route exact path="/admin_views">

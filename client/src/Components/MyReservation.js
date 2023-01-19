@@ -1,9 +1,10 @@
 import React from 'react';
 
-const MyReservation = ({restaurant,resDetails, orders}) => {
-    
-
-    // console.log(resDetails)
+const MyReservation = ({restaurant,resDetails, orders,user}) => {
+  console.log(resDetails)
+  console.log(orders)
+  console.log(restaurant)
+  console.log(user)
     const details = resDetails.map(item => {
 
         return(
@@ -24,9 +25,6 @@ const MyReservation = ({restaurant,resDetails, orders}) => {
             </tr>
         )
     })
-
-
-
 
     return (
       <div className="my-reservations">

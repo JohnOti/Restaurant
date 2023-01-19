@@ -38,6 +38,12 @@ class CustomersController < ApplicationController
     @customer.destroy
   end
 
+  def customer_orders
+    @customer = Customer.find_by(id: session[:user_id])
+    render json: @customer.orders
+  end
+
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_customer
