@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Menu from "./Menu";
-// import Reservation from "./Reservation";
+import Reservation from "./Reservation";
 import MyReservation from "./MyReservation";
 import { Route } from "react-router-dom";
 
@@ -28,7 +28,8 @@ const ReservationPage = ({ filterByRestId, restaurant, handleMenu, user, orders 
         setFavvRestId(restaurant.id)
     }
 
-        const handleSubmit = (e) => {
+  const handleSubmit = (e) => {
+          console.log(e.target.value)
             e.preventDefault()
             fetch("http://localhost:3000/orders", {
                 method: "POST",
@@ -74,43 +75,60 @@ const ReservationPage = ({ filterByRestId, restaurant, handleMenu, user, orders 
             })
         }
 
-    return(
-        <div>
-            
-            <div style={{
-                textAlign:"center"
-            }}>
-                {showMenu ?(
-              <div>
-                <button onClick={() => setShowMenu(false)}>make reservation</button>
-                <Menu
+    return (
+      <div>
+        <div
+          style={{
+            textAlign: "center",
+          }}
+        >
+          {showMenu ? (
+            <div>
+              <button onClick={() => setShowMenu(false)}>
+                make reservation
+              </button>
+              <Menu
                 filterByRestId={filterByRestId}
                 restaurant={restaurant}
                 handleMenu={handleMenu}
                 handleSubmit={handleSubmit}
                 addMenuId={addMenuId}
-                setMeal = {setMeal}
-                setPrice = {setPrice}
-                setMenuId = {setMenuId}
-                />
-                </div>
-                ):(
-                    <div>
-                        <button>Back</button>
-                    <Reservation filterByRestId={filterByRestId} reservation={reservation} handleChange={handleChange} submitResDetails={submitResDetails}/>
-                </div>
-                )}
-                <div>
-                    <Route path="/menu/make-reservation/:name">
-                    </Route>
-                </div>
-                <div>
-                    <Route path="/my-reservations">
-                        <MyReservation restaurant={restaurant}/>
-                    </Route>
-                </div>
+                setMeal={setMeal}
+                setPrice={setPrice}
+                setMenuId={setMenuId}
+              />
             </div>
+          ) : (
+            <div>
+              <button onClick={() => setShowMenu(true)}>Back</button>
+              <Reservation
+                filterByRestId={filterByRestId}
+                reservation={reservation}
+                handleChange={handleChange}
+                submitResDetails={submitResDetails}
+              />
+            </div>
+          )}
           <div>
+            <Route path="/menu/make-reservation/:name"></Route>
+          </div>
+          <div>
+            <Route path="/my-reservations">
+              <MyReservation restaurant={restaurant} />
+            </Route>
+          </div>
+        </div>
+        <div>
+          <img
+            src={restaurant.image}
+            alt={restaurant.name}
+            style={{
+              height: "800px",
+              width: "80%",
+                marginLeft: "10%",
+              borderRadius: "8px",
+            }}
+          />
         </div>
       </div>
     );

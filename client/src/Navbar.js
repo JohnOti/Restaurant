@@ -1,11 +1,18 @@
 import React, { useEffect } from 'react'
 import { Link, useHistory } from 'react-router-dom';
 
-function Navbar() {
+function Navbar({onLogout}) {
+
   const history = useHistory();
   useEffect(() => {
     history.push("/")
-  },[])
+  }, [])
+  
+  function handleLogout() {
+    fetch("/logout", {
+      method: "DELETE",
+    }).then(()=>onLogout())
+  }
     
   return (
     <div className="nav">
@@ -23,7 +30,7 @@ function Navbar() {
         </Link>
       </div> */}
       <div>
-        <Link to="my-reservations">
+        <Link to="my_reservations">
           <button id="btn-sec">My Reservations</button>
         </Link>
       </div>
@@ -49,9 +56,7 @@ function Navbar() {
         </Link>
       </div> */}
       <div>
-        <Link to="/login">
-          <button id="btn-sec">Logout</button>
-        </Link>
+          <button id="btn-sec" onClick={handleLogout}>Logout</button>
       </div>
     </div>
   );

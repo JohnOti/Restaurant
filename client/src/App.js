@@ -8,7 +8,7 @@ import React, { useState, useEffect } from "react";
 import AddMenuPage from "./AddMenuPage";
 import Footer from "./Footer";
 import Adminviews from "./Adminviews";
-import Reservation from "./Components/Reservation";
+import MyReservation from "./Components/MyReservation";
 
 function App() {
   const [restaurants, setRestaurants] = useState([])
@@ -16,7 +16,8 @@ function App() {
   const [menus, setMenus] = useState([])
   const [restaurantId, setRestaurantId] = useState("")
   const [user, setUser] = useState(null);
-  const [ orders, setOrders ] = useState([])
+  const [orders, setOrders] = useState([])
+  const [resDetails,setResDetails] = useState([])
 
   useEffect(()=>{
     fetch("http://localhost:3000/favorite_restaurants")
@@ -50,6 +51,21 @@ function App() {
     .catch(err => console.error(err))
   }, [])
 
+   useEffect(() => {
+     fetch("/orders")
+       .then((r) => r.json())
+       .then((d) => setOrders(d))
+       .catch((e) => console.log(e));
+   }, []);
+
+   useEffect(() => {
+     fetch("/reservations")
+       .then((r) => r.json())
+       .then((d) => setResDetails(d))
+
+       .catch((e) => console.log(e));
+   }, []);
+    
   const handleMenu = (e) => { console.log(e.target.value)
     setRestaurantId(e.target.value);
   }
@@ -79,7 +95,7 @@ console.log(filterByRestId)
         }}
       >
         <Router>
-          <Navbar />
+          <Navbar onLogout={setUser} />
           <Switch>
             <Route exact path="/about">
               <About />
@@ -89,6 +105,13 @@ console.log(filterByRestId)
             </Route>
             <Route exact path="/menu_page">
               <AddMenuPage />
+            </Route>
+            <Route exact path="/my_reservations">
+              <MyReservation
+                restaurant={restaurant}
+                resDetails={resDetails}
+                orders={orders}
+              />
             </Route>
             <Route exact path="/admin_views">
               <Adminviews />
