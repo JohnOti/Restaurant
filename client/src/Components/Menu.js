@@ -29,15 +29,9 @@ const Menu = ({ filterByRestId, restaurant, handleMenu, handleOrderItems, addMen
           </div>
         );
     })
-
+    console.log(menu)
     return (
       <div
-<<<<<<< HEAD
-        style={{
-          background: "white",
-        }}
-=======
->>>>>>> 5e06e9ff942b2ae10e3f501f413d349f1f0a7a0f
         className="res-menu"
       >
         <div style={{

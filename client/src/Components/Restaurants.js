@@ -21,7 +21,7 @@ const Restaurants = ({ restaurants, location, handleMenu }) => {
       return item.location_id === parseInt(locationFilter);
     }
   });
-
+console.log(restaurants);
   const restaurantList = restaurantFilter.map((res) => {
     return (
       <div key={res.id} className="grid">
@@ -36,7 +36,7 @@ const Restaurants = ({ restaurants, location, handleMenu }) => {
           />
         </Link>
         <h3>{res.name}</h3>
-        <Link to={`/${res.name}`}>
+        <Link to={`/menu/${res.name}`}>
           <button
             onClick={handleMenu}
             value={res.id}

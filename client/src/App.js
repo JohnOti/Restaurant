@@ -5,12 +5,10 @@ import Restaurants from "./Components/Restaurants";
 import ReservationPage from "./Components/ReservationPage";
 import SignInPage from "./Pages/SignInPage";
 import React, { useState, useEffect } from "react";
-<<<<<<< HEAD
-=======
 import AddMenuPage from "./AddMenuPage";
 import Footer from "./Footer";
 import Adminviews from "./Adminviews";
->>>>>>> 5e06e9ff942b2ae10e3f501f413d349f1f0a7a0f
+import Reservation from "./Components/Reservation";
 
 function App() {
   const [restaurants, setRestaurants] = useState([])
@@ -52,7 +50,7 @@ function App() {
     .catch(err => console.error(err))
   }, [])
 
-  const handleMenu = (e) => {
+  const handleMenu = (e) => { console.log(e.target.value)
     setRestaurantId(e.target.value);
   }
 
@@ -60,7 +58,7 @@ function App() {
 
   const filterByRestId = menus.filter( item => item.favorite_restaurant_id === parseInt(restaurantId))
 
-
+console.log(filterByRestId)
 
   useEffect(() => {
     fetch("http://localhost:3000/me").then((r) => {
@@ -91,16 +89,11 @@ function App() {
             </Route>
             <Route exact path="/menu_page">
               <AddMenuPage />
-<<<<<<< HEAD
-            </Route> */}
-            <Route exact path="/:name">
-=======
             </Route>
             <Route exact path="/admin_views">
               <Adminviews />
             </Route>
             <Route exact path="/menu/:name">
->>>>>>> 5e06e9ff942b2ae10e3f501f413d349f1f0a7a0f
               <ReservationPage
                 filterByRestId={filterByRestId}
                 restaurant={restaurant}
@@ -109,9 +102,6 @@ function App() {
                 orders={orders}
               />
             </Route>
-            {/* <Route path={`/menu/make-reservation/:name`}>
-              < filterByRestId={filterByRestId} />
-            </Route> */}
             <Route exact path="/">
               <Restaurants
                 restaurants={restaurants}
