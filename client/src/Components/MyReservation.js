@@ -1,24 +1,9 @@
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 
-const MyReservation = ({restaurant}) => {
-    const [ orders, setOrders ] = useState([])
-    const [ resDetails, setResDetails ] = useState([])
+const MyReservation = ({restaurant,resDetails, orders}) => {
+    
 
-
-    useEffect(()=>{
-        fetch("/orders")
-        .then(r=> r.json())
-        .then(d=> setOrders(d))
-        .catch(e=> console.log(e))
-    }, [])
-
-    useEffect(()=>{
-        fetch("/reservations")
-        .then(r=> r.json())
-        .then(d=> setResDetails(d))
-        .catch(e=> console.log(e))
-    }, [])
-
+    // console.log(resDetails)
     const details = resDetails.map(item => {
 
         return(
@@ -26,8 +11,8 @@ const MyReservation = ({restaurant}) => {
                 <td>{restaurant[item.favorite_restaurant_id].name}</td>
                 <td>
                     <select>
-                        <option>Orderd Meals</option>
-                        {item.orders.map(i => {
+                        <option>Ordered Meals</option>
+                        {orders.map(i => {
                             return(
                                 <option>{i.meal}</option>
                             )
@@ -44,28 +29,19 @@ const MyReservation = ({restaurant}) => {
 
 
     return (
-        <div>
-            <table>
-                <thead>
-                    <tr>
-                        <h2>Restaurant Name</h2>
-                    </tr>
-                    <tr>
-                        <h2>Dish</h2>
-                    </tr>
-                    <tr>
-                        <h2>Amount</h2>
-                    </tr>
-                    <tr>
-                        <h2></h2>
-                    </tr>
-                </thead>
-                <tbody>
-                    {details}
-                </tbody>
-            </table>
-            
-        </div>
+      <div className="my-reservations">
+        <table>
+          <thead>
+            <tr>
+              <th>Restaurant Name</th>
+              <th>Dish</th>
+              <th>Amount</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>{details}</tbody>
+        </table>
+      </div>
     );
 }
 

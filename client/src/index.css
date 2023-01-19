@@ -61,11 +61,8 @@
 .res-reserve{
   background-color: rgb(214, 218, 221);
 }
-<<<<<<< HEAD
-=======
-/* About */
->>>>>>> 5e06e9ff942b2ae10e3f501f413d349f1f0a7a0f
 
+/* About */
 .about{
   background-color: rgb(8, 52, 84);
   color: white;
@@ -415,4 +412,23 @@
   display: flex;
   justify-content: flex-end;
   margin-right: 5px;
+}
+
+/* Reservations Page */
+
+.make-reservation{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+/* My Reservations */
+
+.my-reservations{
+  height: 68vh;
+  background-color: rgb(237, 235, 235);
+  display: flex;
+  justify-content: center;
 }
