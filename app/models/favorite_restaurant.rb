@@ -8,7 +8,7 @@ class FavoriteRestaurant < ApplicationRecord
     belongs_to :location
     has_many :reviews, through: :customers
     has_many :ratings, through: :customers
-    has_many :order
+    has_many :orders
 
     validates :password, length: { minimum: 6 }
     validates :name, uniqueness: true, presence: true

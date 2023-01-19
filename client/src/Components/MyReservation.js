@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 
-const MyReservation = () => {
+const MyReservation = ({restaurant}) => {
     const [ orders, setOrders ] = useState([])
     const [ resDetails, setResDetails ] = useState([])
 

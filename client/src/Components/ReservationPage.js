@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Menu from "./Menu";
-import Reservation from "./Reservation";
+// import Reservation from "./Reservation";
 import MyReservation from "./MyReservation";
 import { Route } from "react-router-dom";
 
@@ -12,6 +12,7 @@ const ReservationPage = ({ filterByRestId, restaurant, handleMenu, user, orders 
     const [ price, setPrice ] = useState("")
     const [ favorite_restaurant_id, setFavvRestId ] = useState("")
     const [ resPrice, setResPrice ] = useState("")
+    const [showMenu, setShowMenu] = useState(true)
     const [ reservation, setReservation ] = useState({
         customer_id: user.id,
         favorite_restaurant_id: restaurant.id,
@@ -20,6 +21,7 @@ const ReservationPage = ({ filterByRestId, restaurant, handleMenu, user, orders 
         no_of_seats: "",
         total_price: ""
     })
+    console.log(filterByRestId)
 
     const addMenuId = () => {
         setCustomerId(user.id)
@@ -74,9 +76,13 @@ const ReservationPage = ({ filterByRestId, restaurant, handleMenu, user, orders 
 
     return(
         <div>
+            
             <div style={{
                 textAlign:"center"
             }}>
+                {showMenu ?(
+              <div>
+                <button onClick={() => setShowMenu(false)}>make reservation</button>
                 <Menu
                 filterByRestId={filterByRestId}
                 restaurant={restaurant}
@@ -87,14 +93,20 @@ const ReservationPage = ({ filterByRestId, restaurant, handleMenu, user, orders 
                 setPrice = {setPrice}
                 setMenuId = {setMenuId}
                 />
+                </div>
+                ):(
+                    <div>
+                        <button>Back</button>
+                    <Reservation filterByRestId={filterByRestId} reservation={reservation} handleChange={handleChange} submitResDetails={submitResDetails}/>
+                </div>
+                )}
                 <div>
                     <Route path="/menu/make-reservation/:name">
-                        <Reservation filterByRestId={filterByRestId} reservation={reservation} handleChange={handleChange} submitResDetails={submitResDetails}/>
                     </Route>
                 </div>
                 <div>
                     <Route path="/my-reservations">
-                        <MyReservation/>
+                        <MyReservation restaurant={restaurant}/>
                     </Route>
                 </div>
             </div>

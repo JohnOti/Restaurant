@@ -1,11 +1,7 @@
 source "https://rubygems.org"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-<<<<<<< HEAD
-# ruby "2.7.4"
-=======
 ruby "2.7.4"
->>>>>>> 5e06e9ff942b2ae10e3f501f413d349f1f0a7a0f
 # ruby "3.0.2"
 # ruby "3.1.3"
 
