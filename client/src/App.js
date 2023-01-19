@@ -59,15 +59,15 @@ function App() {
    }, []);
 
    useEffect(() => {
-  fetch("http://localhost:3000/reservations")
+     fetch("/reservations")
        .then((r) => r.json())
        .then((d) => setResDetails(d))
 
        .catch((e) => console.log(e));
    }, []);
   const handleDelete = (id)=> {
-    fetch(`http://localhost:3000/reservations/${id}`,{
-    method:"DELETE",
+    fetch(`/reservations/${id}`,{
+      method:"DELETE",
     });
     setResDetails(resDetails.filter((reservation) => reservation.id !==id))
     }
