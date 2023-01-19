@@ -5,9 +5,10 @@ const Menu = ({
   filterByRestId,
   restaurant,
   handleSubmit,
-  handleOrderItems,
   addMenuId,
   setMenuId,
+  setPrice,
+  setMeal
 }) => {
   const menu = filterByRestId.map((item) => {
     return (
@@ -29,11 +30,12 @@ const Menu = ({
             type="submit"
             value={item.id}
             onClick={() => {
+              setPrice(parseInt(item.price))
+              setMeal(item.cuisine)
+              setMenuId(item.id)
               addMenuId()
-              handleSubmit()
             }}
-            onFocus={(e) => setMenuId(parseInt(e.target.value))}
-            onSubmit={handleSubmit}
+            onFocus={handleSubmit}
           >
             Add
           </button>
@@ -41,7 +43,6 @@ const Menu = ({
       </div>
     );
   });
-  console.log(menu);
   return (
     <div className="res-menu">
       <div

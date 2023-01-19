@@ -17,6 +17,8 @@ Rails.application.routes.draw do
   get "/me", to: "customers#show"
   delete "/logout", to: "sessions#destroy"
 
+  get "/customer_orders", to: "customers#customer_orders"
+
   #Restaurants
   post "/restaurant_login", to: "sessions#create_restaurant"
 
