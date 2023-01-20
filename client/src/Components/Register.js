@@ -10,10 +10,10 @@ function Register({onLogin}) {
 
   function handleSubmit(e) {
     e.preventDefault();
-    fetch("/customers", {
+    fetch("http://localhost:3000/customers", {
       method: "POST",
       headers: {
-        mode: "no-cors",
+        // mode: "no-cors",
         "Content-Type": "application/json",
         Accept: "application/json",
       },
@@ -29,7 +29,7 @@ function Register({onLogin}) {
       } else {
         res.json().then((err) => {
           console.log(err.errors);
-          setErrors(err.errors)
+          setErrors(err.errors);
         });
       }
     });

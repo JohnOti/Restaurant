@@ -1,12 +1,13 @@
 import React,{ useState} from "react";
 
-const AddMenuPage = ({ menus, setMenus }) => {
-  const url = "/menus";
+const AddMenuPage = ({ menus, setMenus ,user }) => {
+  const url = "http://localhost:3000/menus";
 
   const [AddMenuPage, setAddMenuPage] = useState({
     cuisine: "",
     price: "",
     image: "",
+    favorite_restaurant_id:user.id,
     ingredients: "",
   });
   const handleChange = (e) => {
@@ -17,7 +18,7 @@ const AddMenuPage = ({ menus, setMenus }) => {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-
+    alert("Successfully created")
     fetch(url, {
       method: "POST",
       headers: {
@@ -40,7 +41,7 @@ const AddMenuPage = ({ menus, setMenus }) => {
       <h3 className="h3-form_box">Add a new menu</h3>
       <div className="menu-form">
         <form onSubmit={handleSubmit} className="menu-page">
-          <label for="cuisine">Cuisine:</label>
+          <label>Cuisine:</label>
           <br />
           <input
             className="inputs"
@@ -48,9 +49,10 @@ const AddMenuPage = ({ menus, setMenus }) => {
             placeholder="Enter Cuisine name"
             onChange={handleChange}
             name="cuisine"
+            required
           />
           <br></br>
-          <label for="price">Price:</label>
+          <label>Price:</label>
           <br></br>
           <input
             className="inputs"
@@ -58,9 +60,20 @@ const AddMenuPage = ({ menus, setMenus }) => {
             placeholder="Enter value in KSH"
             onChange={handleChange}
             name="price"
+            required
           />
           <br></br>
-          <label for="image">Image:</label>
+          {/* <label >Favourite restaurant Id:</label>
+          <br></br>
+          <input
+            className="inputs"
+            type="number"
+            placeholder="Enter restaurant id"
+            onChange={handleChange}
+            name="id"
+          /> */}
+          <br></br>
+          <label >Image:</label>
           <br></br>
           <input
             className="inputs"
@@ -68,10 +81,11 @@ const AddMenuPage = ({ menus, setMenus }) => {
             placeholder="image_url"
             onChange={handleChange}
             name="image"
+            required
           />
           <br></br>
 
-          <label for="ingredients">Ingredients:</label>
+          <label >Ingredients:</label>
           <br></br>
           <input
             className="inputs"
@@ -79,6 +93,7 @@ const AddMenuPage = ({ menus, setMenus }) => {
             placeholder="list the ingredients"
             onChange={handleChange}
             name="ingredients"
+            required
           />
           <br />
           <br />
