@@ -17,7 +17,7 @@ function Navbar({onLogout}) {
   return (
     <div className="nav">
       <div className="logo">
-        <h1>logo here</h1>
+        <h2>Hungry¿Food</h2>
       </div>
       <div id="home">
         <Link to="/">
@@ -34,29 +34,16 @@ function Navbar({onLogout}) {
           <button id="btn-sec">My Reservations</button>
         </Link>
       </div>
-      <div>
+      {/* <div>
         <Link to="/admin">
           <button id="btn-sec">Admin</button>
         </Link>
-      </div>
-      {/* <div>
-        <Link to="/admin_views">
-          <button id="btn-sec">Admin views</button>
-        </Link>
-      </div>
-      <div>
-        <Link to="/menu_page">
-          <button id="btn-sec">Add Menu</button>
-        </Link>
       </div> */}
 
-      {/* <div>
-        <Link to="/about">
-          <button id="btn-sec">About us</button>
-        </Link>
-      </div> */}
       <div>
-          <button id="btn-sec" onClick={handleLogout}>Logout</button>
+        <button id="btn-sec" onClick={handleLogout}>
+          Logout
+        </button>
       </div>
     </div>
   );

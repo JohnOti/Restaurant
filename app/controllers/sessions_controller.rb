@@ -1,6 +1,6 @@
 class SessionsController < ApplicationController
 
-    skip_before_action :authorize, only: [:create, :get]    
+    skip_before_action :authorize, only: [:create, :get,:create_restaurant]    
 
     
     def create
@@ -27,6 +27,11 @@ class SessionsController < ApplicationController
     end
     
     def destroy
+        session.delete :user_id
+        head :no_content
+    end
+
+    def res_logout
         session.delete :user_id
         head :no_content
     end

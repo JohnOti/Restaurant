@@ -20,7 +20,7 @@ const SignInPage = ({ onLogin, location }) => {
                     }}>
                     <h4>
                         Don't have an account? &nbsp;
-                        <button className='btn-sec' onClick={() => setShowLogin(false)}>
+                        <button className='btn-sign' onClick={() => setShowLogin(false)}>
                             Sign Up
                         </button>
                     </h4>

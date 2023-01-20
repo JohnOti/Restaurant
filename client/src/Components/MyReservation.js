@@ -1,20 +1,21 @@
 import React from 'react';
 
-const MyReservation = ({restaurants,resDetails, orders,user, handleDelete}) => {
+const MyReservation = ({ restaurants, resDetails, orders, user, handleDelete }) => {
+    console.log(user.orders)
 const details = user.reservations.map(item => {
         return(
-            <tr>
+            <tr key={item.id}>
                 <td>{restaurants[item.favorite_restaurant_id].name}</td>
-                <td>
-                  <select>
+                {/* <td> */}
+                  {/* <select>
                   {user.orders.filter(i=> i.favorite_restaurant_id === item.favorite_restaurant_id)
-                  .map(i=> <option>{i.meal}</option>)}  
-                  </select>             
-                </td>
-                <td>{user.orders.filter(i => i.favorite_restaurant_id === item.favorite_restaurant_id)
-                .map(i => i.price).reduce((a,b)=> a+b)}</td>
+                  .map(i=> <option key={i.id}>{i.meal}</option>)}  
+                  </select>              */}
+                {/* </td> */}
+                {/* <td>{user.orders.filter(i => i.favorite_restaurant_id === item.favorite_restaurant_id)
+                .map(i => i.price).reduce((a,b)=> a+b)}</td> */}
                 <button onClick={()=> handleDelete(parseInt(item.id))}>
-                  Remove
+                  x
                 </button>
             </tr>
         )
@@ -26,8 +27,6 @@ const details = user.reservations.map(item => {
           <thead>
             <tr>
               <th>Restaurant Name</th>
-              <th>Dish</th>
-              <th>Amount</th>
               <th></th>
             </tr>
           </thead>

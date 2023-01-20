@@ -2,37 +2,38 @@ import React, {useState} from "react";
 
 const RestaurantLogin = ({onLogin}) => {
 
-    const [restaurantName, setRestaurnant] = useState("");
+    const [name, setRestaurant] = useState("");
     const [password, setPassword] = useState("");
     const [error, setErrors] = useState([]);
     
     function handleSubmit(e) {
         e.preventDefault();
-        fetch("/restaurant_login", {
-        method: "POST",
-        headers: {
+        fetch("http://localhost:3000/restaurant_login", {
+          method: "POST",
+          headers: {
             "Content-Type": "application/json",
-            Accept: "application/json",
-        },
-        body: JSON.stringify({
-            restaurantName,
+            // Accept: "application/json",
+          },
+          body: JSON.stringify({
+            name,
             password,
-        }),
-        })
-        .then((res) => {
-        console.log(res)
-        if (res.ok) {
+          }),
+        }).then((res) => {
+          console.log(res);
+          if (res.ok) {
             res.json().then((user) => {
-            onLogin(user);
+              onLogin(user);
             });
-        } else {
+          } else {
             res.json().then((err) => {
-            console.log(err.errors);
-            setErrors(err.errors);
+              console.log(err.errors);
+              setErrors(err.errors);
             });
-        }
+          }
         });
     }
+  console.log(name)
+  console.log(password);
 
     return (
     <div className="login">
@@ -43,8 +44,8 @@ const RestaurantLogin = ({onLogin}) => {
           type="text"
           className="inputs"
           placeholder="name..."
-          value={restaurantName}
-          onChange={(e) => setRestaurnant(e.target.value)}
+          value={name}
+          onChange={(e) => setRestaurant(e.target.value)}
         />
         <label>Password</label>
         <input 
