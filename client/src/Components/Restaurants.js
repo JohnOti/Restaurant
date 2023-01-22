@@ -41,7 +41,8 @@ console.log(restaurants);
             onClick={handleMenu}
             value={res.id}
             className="butt"
-            id="btn-sec"
+            onMouseOver={(e)=> e.target.style.background = "#772006"} 
+           onMouseOut={(e)=> e.target.style.background = "#f4511e" }
           >Menu
           </button>
         </Link>
