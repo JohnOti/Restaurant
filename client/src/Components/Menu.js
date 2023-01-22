@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
 
 const Menu = ({
   filterByRestId,
@@ -50,14 +49,6 @@ const Menu = ({
           textAlign: "center",
         }}
       >
-        <img
-          src={restaurant.image}
-          alt={restaurant.name}
-          style={{
-            height: "300px",
-            width: "100%",
-          }}
-        />
         <h2> {restaurant.name} </h2>
       </div>
       <div

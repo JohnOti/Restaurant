@@ -1,13 +1,10 @@
 import { BrowserRouter as Router, Switch, Route} from "react-router-dom";
-import About from "./About";
 import Navbar from "./Navbar";
 import Restaurants from "./Components/Restaurants";
 import ReservationPage from "./Components/ReservationPage";
 import SignInPage from "./Pages/SignInPage";
 import React, { useState, useEffect } from "react";
 import AddMenuPage from "./AddMenuPage";
-import Footer from "./Footer";
-import Adminviews from "./Adminviews";
 import MyReservation from "./Components/MyReservation";
 import NavbarRes from "./NavbarRes";
 import CheckReservations from "./CheckReservations";
@@ -22,8 +19,8 @@ function App() {
   const [restaurantId, setRestaurantId] = useState("")
   const [user, setUser] = useState(null);
   const [orders, setOrders] = useState([])
-  const [resDetails, setResDetails] = useState([])
-  const [menudetails, setMenudetails] = useState({});
+  const [reservations, setReservations] = useState([])
+  const [menuDetails, setMenuDetails] = useState({});
   
 
   useEffect(()=>{
@@ -34,12 +31,14 @@ function App() {
 
   }, [])
 
-  useEffect(() => {
+  useEffect(()=>{
     fetch("http://localhost:3000/customers")
-      .then((r) => r.json())
-      .then((d) => setCustomers(d))
-      .catch((err) => console.error(err));
-  }, []);
+    .then(r => r.json())
+    .then(d => setRestaurants(d))
+    .catch(err => console.error(err))
+
+  }, [  ])
+
 
   useEffect(()=>{
     fetch("http://localhost:3000/locations")
@@ -64,25 +63,21 @@ function App() {
     .catch(err => console.error(err))
   }, [])
 
-  //  useEffect(() => {
-  //    fetch("/orders")
-  //      .then((r) => r.json())
-  //      .then((d) => setOrders(d))
-  //      .catch((e) => console.log(e));
-  //  }, []);
-
    useEffect(() => {
      fetch("http://localhost:3000/reservations")
        .then((r) => r.json())
-       .then((d) => setResDetails(d))
+       .then((d) => setReservations(d))
 
        .catch((e) => console.log(e));
-   }, []);
+   }, [])
+
+   console.log(reservations)
+
   const handleDelete = (id)=> {
     fetch(`http://localhost:3000/reservations/${id}`, {
       method: "DELETE",
     });
-    setResDetails(resDetails.filter((reservation) => reservation.id !==id))
+    setReservations(reservations.filter((reservation) => reservation.id !==id))
     }
   const handleMenu = (e) => {
     setRestaurantId(e.target.value);
@@ -92,7 +87,7 @@ function App() {
 
   const filterByRestId = menus.filter( item => item.favorite_restaurant_id === parseInt(restaurantId))
 
-
+ 
   useEffect(() => {
     fetch("http://localhost:3000/me").then((r) => {
       if (r.ok) {
@@ -103,10 +98,6 @@ function App() {
   if (!user) {
     return <SignInPage onLogin={setUser} location={location}/>;
   }
-
-  // if (user.location_id === true) {
-  //   return user === false;
-  // }
 
     return (
       <div
@@ -119,24 +110,14 @@ function App() {
           <Router>
             <Navbar onLogout={setUser} />
             <Switch>
-              <Route exact path="/about">
-                <About />
-              </Route>
-              <Route exact path="/admin">
-                <SignInPage onLogin={setUser} location={location} />
-              </Route>
-
               <Route exact path="/my_reservations">
                 <MyReservation
                   restaurants={restaurants}
-                  resDetails={resDetails}
+                  reservations={reservations}
                   orders={orders}
                   user={user}
                   handleDelete={handleDelete}
                 />
-              </Route>
-              <Route exact path="/admin_views">
-                <Adminviews />
               </Route>
               <Route exact path="/:name">
                 <ReservationPage
@@ -155,7 +136,6 @@ function App() {
                 />
               </Route>
             </Switch>
-            <Footer />
           </Router>
         ) : (
           <Router>
@@ -167,22 +147,24 @@ function App() {
               <Route exact path="/check_reservations">
                 <CheckReservations
                   user={user}
-                  resDetails={resDetails}
+                  reservations={reservations}
                   customers={customers}
                 />
               </Route>
               <Route exact path="/restaurant_menus">
                 <RestaurantMenus
                   user={user}
-                  menudetails={menudetails}
-                  setMenudetails={setMenudetails}
+                  menuDetails={menuDetails}
+                  setMenuDetails={setMenuDetails}
+                 
                 />
               </Route>
               <Route exact path="/edit-menu">
                 <EditMenu
-                  menudetails={menudetails}
+                  menuDetails={menuDetails}
                   menus={menus}
                   setMenus={setMenus}
+                 
                 />
               </Route>
             </Switch>

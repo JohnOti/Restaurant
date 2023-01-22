@@ -8,9 +8,14 @@ const LoginPage = ({onLogin, location}) => {
         <div className='pages'>
             {userLogin ? (
                 <>
+                <div style={{
+                    justifyContent:"flex-end"
+                }}>
                     <button className='btn-sec' onClick={() => setUserLogin(false)}>
                         Login Restaurant
                     </button>
+                </div>
+                   
                     <Login onLogin={onLogin}/>
                     <div style={{
                         border: "none",

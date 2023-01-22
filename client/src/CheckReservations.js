@@ -19,7 +19,20 @@ function CheckReservations({ user, resDetails, customers }) {
     })
   return (
     <div>Check Reservations
-      <table>{reservations}</table>
+      <table id='table'>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>email</th>
+            <th>Date</th>
+            <th>Time</th>
+            <th>People</th>
+          </tr>
+        </thead>
+        <tbody>
+          {reservations}
+        </tbody>
+      </table>
     </div>
 
   )

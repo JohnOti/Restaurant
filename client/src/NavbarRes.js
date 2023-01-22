@@ -11,7 +11,7 @@ function NavbarRes({onLogout}) {
     <div className="nav-res">
       <div id="nav-bar">
         <div className="logo">
-          <h2>Hungry¿Food</h2>
+          <h1>Hungry¿Food</h1>
         </div>
         <div>
           <Link to="/">

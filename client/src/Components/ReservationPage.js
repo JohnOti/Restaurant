@@ -78,9 +78,22 @@ const ReservationPage = ({ filterByRestId, restaurant, handleMenu, user, orders 
             textAlign: "center",
           }}
         >
+           <img
+          src={restaurant.image}
+          alt={restaurant.name}
+          style={{
+            height: "300px",
+            width: "100%",
+          }}
+        />
           {showMenu ? (
             <div>
-              <button onClick={() => setShowMenu(false)}>
+              <button 
+              style={{
+                border:"none"
+              }}
+              className="btn-sec"
+               onClick={() => setShowMenu(false)}>
                 make reservation
               </button>
               <Menu
@@ -115,16 +128,6 @@ const ReservationPage = ({ filterByRestId, restaurant, handleMenu, user, orders 
           </div>
         </div>
         <div>
-          <img
-            src={restaurant.image}
-            alt={restaurant.name}
-            style={{
-              height: "800px",
-              width: "80%",
-                marginLeft: "10%",
-              borderRadius: "8px",
-            }}
-          />
         </div>
       </div>
     );
