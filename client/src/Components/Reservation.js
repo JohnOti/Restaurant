@@ -1,14 +1,6 @@
-import React, {useState, useEffect} from "react";
+import React from "react";
 
 const Reservation = ( {handleChange, submitResDetails, reservation} ) => {
-    const [confirm, setConfirm] = useState("confirm")
-
-    useEffect(()=>{})
-
-    
-    if(!confirm){
-        setConfirm("confirmed")
-    }
 
         return (
           <div className="make-reservation">
@@ -55,7 +47,7 @@ const Reservation = ( {handleChange, submitResDetails, reservation} ) => {
                 className="btn-res"
                 onClick={() => alert("request sent")}
               >
-                {confirm}
+                Confirm
               </button>
             </form>
           </div>

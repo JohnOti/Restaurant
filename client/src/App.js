@@ -34,7 +34,7 @@ function App() {
   useEffect(()=>{
     fetch("http://localhost:3000/customers")
     .then(r => r.json())
-    .then(d => setRestaurants(d))
+    .then(d => setCustomers(d))
     .catch(err => console.error(err))
 
   }, [  ])
@@ -70,8 +70,6 @@ function App() {
 
        .catch((e) => console.log(e));
    }, [])
-
-   console.log(reservations)
 
   const handleDelete = (id)=> {
     fetch(`http://localhost:3000/reservations/${id}`, {
@@ -126,6 +124,8 @@ function App() {
                   handleMenu={handleMenu}
                   user={user}
                   orders={orders}
+                  reservations={reservations}
+                  setReservations={setReservations}
                 />
               </Route>
               <Route exact path="/">

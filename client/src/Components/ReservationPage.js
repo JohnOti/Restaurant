@@ -1,17 +1,16 @@
-import React, { useState, useEffect } from "react";
+import React, { useState} from "react";
 import Menu from "./Menu";
 import Reservation from "./Reservation";
 import MyReservation from "./MyReservation";
 import { Route } from "react-router-dom";
 
 
-const ReservationPage = ({ filterByRestId, restaurant, handleMenu, user, orders }) => {
+const ReservationPage = ({ filterByRestId, restaurant, handleMenu, user, reservations, setReservations }) => {
     const [ customer_id, setCustomerId ] = useState("")
     const [ menu_id, setMenuId ] = useState("")
     const [ meal, setMeal ] = useState("")
     const [ price, setPrice ] = useState("")
     const [ favorite_restaurant_id, setFavvRestId ] = useState("")
-    const [ resPrice, setResPrice ] = useState("")
     const [showMenu, setShowMenu] = useState(true)
     const [ reservation, setReservation ] = useState({
         customer_id: user.id,
@@ -42,6 +41,10 @@ const ReservationPage = ({ filterByRestId, restaurant, handleMenu, user, orders 
                     price
                 })
               });
+              setReservations({
+                ...reservations,
+                reservation
+              })
         }
 
         const handleChange = (e) =>{

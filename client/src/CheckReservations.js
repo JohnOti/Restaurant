@@ -1,12 +1,9 @@
 import React from 'react'
 
-function CheckReservations({ user, resDetails, customers }) {
-  console.log(customers)
-  console.log(resDetails);
-  console.log(user)
-    // const array = user.reservations.map(item => item.favorite_restaurant_id === user.id)
-  const reservations = user.reservations.map(item => {
-    console.log(item.date)
+function CheckReservations({ user, reservations, customers }) {
+    const array = reservations.filter(item => item.favorite_restaurant_id === user.id)
+  const reservation = array.map(item => {
+    console.log(customers)
       return (
         <tr>
           <td>{customers.find((c) => c.id === item.customer_id).username}</td>
@@ -30,7 +27,7 @@ function CheckReservations({ user, resDetails, customers }) {
           </tr>
         </thead>
         <tbody>
-          {reservations}
+          {reservation}
         </tbody>
       </table>
     </div>
