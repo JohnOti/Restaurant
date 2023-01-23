@@ -8,28 +8,36 @@ function NavbarRes({onLogout}) {
     }).then(() => onLogout());
   }
   return (
-    <div className="nav-res">
-      <div id="nav-bar">
+    <div >
+      <div className="nav">
         <div className="logo">
           <h1>Hungry¿Food</h1>
         </div>
         <div>
           <Link to="/">
-            <button id="btn-nav">Add menu</button>
+            <button id="btn-nav" 
+            onMouseOver={(e)=> e.target.style.background = "grey"} 
+           onMouseOut={(e)=> e.target.style.background = "#D3D3D3" }>Add menu</button>
           </Link>
         </div>
         <div>
           <Link to="/check_reservations">
-            <button id="btn-nav">Reservations</button>
+            <button id="btn-nav" 
+            onMouseOver={(e)=> e.target.style.background = "grey"} 
+           onMouseOut={(e)=> e.target.style.background = "#D3D3D3" }>Reservations</button>
           </Link>
         </div>
         <div>
           <Link to="/restaurant_menus">
-            <button id="btn-nav">Check menu</button>
+            <button id="btn-nav" 
+            onMouseOver={(e)=> e.target.style.background = "grey"} 
+           onMouseOut={(e)=> e.target.style.background = "#D3D3D3" }>Check menu</button>
           </Link>
         </div>
         <div>
-          <button id="btn-nav" onClick={handleLogout}>
+          <button id="btn-nav" 
+          onMouseOver={(e)=> e.target.style.background = "grey"} 
+           onMouseOut={(e)=> e.target.style.background = "#D3D3D3" } onClick={handleLogout}>
             Logout
           </button>
         </div>
